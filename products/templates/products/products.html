@@ -1,26 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FLEX FIT | PRODUCTS</title>
-</head>
-<body>
-    <h1>Flex Fit Products</h1>
+{% extends "base.html" %}
 
-    {% if products %}
-        <ul>
-            {% for product in products %}
-                <li>
-                    <strong>{{ product.name }}</strong><br>
-                    £{{ product.price }}<br>
-                    {{ product.category }}
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
+{% block title %}Flex Fit | Shop{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Flex Fit Products</h1>
+
+{% if products %}
+    <div class="row">
+        {% for product in products %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">
+                            £{{ product.price }}<br>
+                            {{ product.category }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
     <p>No products available.</p>
-    {% endif %}
-    
-</body>
-</html>
+{% endif %}
+{% endblock %}
