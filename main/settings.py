@@ -37,6 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+# Flex Fit Apps
+
+    'accounts',
+    'products',
+    'cart',
+    'orders',
+    'payments',
+    'pages',
 ]
 
 MIDDLEWARE = [
