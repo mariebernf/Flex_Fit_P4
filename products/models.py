@@ -33,6 +33,7 @@ class Product(models.Model):
     stock_quantity = models.PositiveIntegerField()
     description = models.TextField(blank=True)
     is_active = models.BooleanField(default=True)
+    image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.name
