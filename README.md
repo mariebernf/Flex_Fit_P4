@@ -50,7 +50,12 @@ Responsiveness:
 
 | Bug | Cause | Solution | Result |
 |-----|-------|----------|--------|
-| CSS files not loading in templates | Django didn’t know about the static folder | Added STATICFILES_DIRS = [BASE_DIR / "static"] in settings.py | CSS now loads correctly and pages display styling as expected |
+| CSS files not loading in templates. | Django didn’t know about the static folder. | Added STATICFILES_DIRS = [BASE_DIR / "static"] in settings.py. | CSS now loads correctly and pages display styling as expected. |
+|||||
+| Product images not shown. | Template did not have code to display images. | Added product.image.url to products.html. | Images now display for products. |
+|||||
+|  |  |  |  |
+
 
 
 ## Credits
