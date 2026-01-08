@@ -54,7 +54,7 @@ Responsiveness:
 |||||
 | Product images not shown. | Template did not have code to display images. | Added product.image.url to products.html. | Images now display for products. |
 |||||
-|  |  |  |  |
+| Product card images did not display correctly. | Images had different dimensions, causing uneven card layouts. | Applied bootstrap card-img-top and fixed image height using CSS with object-fit:cover. | Product images now display correctly. |
 
 
 
