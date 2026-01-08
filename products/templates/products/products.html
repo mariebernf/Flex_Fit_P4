@@ -6,26 +6,59 @@
 <h1 class="mb-4">Flex Fit Products</h1>
 
 {% if products %}
+
+    <!-- MEN'S SECTION -->
+    <h2 class="mt-4 mb-3">Men</h2>
     <div class="row">
         {% for product in products %}
-            <div class="col-12 col-sm-6 col-md-4 mb-4">
-                <div class="card h-100">
+            {% if product.gender == "MEN" or product.gender == "UNISEX" %}
+                <div class="col-12 col-sm-6 col-md-4 mb-4">
+                    <div class="card h-100">
 
-                    {% if product.image %}
-                        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
-                    {% endif %}
+                        {% if product.image %}
+                            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                        {% endif %}
 
-                    <div class="card-body">
-                        <h5 class="card-title">{{ product.name }}</h5>
-                        <p class="card-text">
-                            £{{ product.price }}<br>
-                            {{ product.category }}
-                        </p>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">
+                                £{{ product.price }}<br>
+                                {{ product.category }}
+                            </p>
+                        </div>
+
                     </div>
                 </div>
-            </div>
+            {% endif %}
         {% endfor %}
     </div>
+
+    <!-- WOMEN'S SECTION -->
+    <h2 class="mt-5 mb-3">Women</h2>
+    <div class="row">
+        {% for product in products %}
+            {% if product.gender == "WOMEN" or product.gender == "UNISEX" %}
+                <div class="col-12 col-sm-6 col-md-4 mb-4">
+                    <div class="card h-100">
+
+                        {% if product.image %}
+                            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                        {% endif %}
+
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <p class="card-text">
+                                £{{ product.price }}<br>
+                                {{ product.category }}
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
 {% else %}
     <p>No products available.</p>
 {% endif %}
