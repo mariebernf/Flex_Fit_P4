@@ -55,6 +55,8 @@ Responsiveness:
 | Product images not shown. | Template did not have code to display images. | Added product.image.url to products.html. | Images now display for products. |
 |||||
 | Product card images did not display correctly. | Images had different dimensions, causing uneven card layouts. | Applied bootstrap card-img-top and fixed image height using CSS with object-fit:cover. | Product images now display correctly. |
+|||||
+| Product grid was not responsive on smaller screen sizes, it remained in a 3 column layout. | The viewport meta tag was missing from base.html.  | Added meta name="viewport" content="width=device-width, initial-scale=1" to the base template. | The product grid now stacks correctly on smaller screen sizes. |
 
 
 
