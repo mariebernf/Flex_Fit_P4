@@ -60,7 +60,7 @@ Responsiveness:
 |||||
 | Cart page did not load. | Missing ( cart: ) namespace in {% url %} template tags. | Added the correct ( cart: ) namespace to all cart-related template URLs. | The cart page now loads correctly. The quanity and remove funciton now work. |
 |||||
-|  | |  |  |
+| Checkout success page returned "Template does not exist error". | The checkout success html file was placed outside of the orders/templates/orders folders. | File was placed in the correct folder. | Page now loads correctly. |
 
 
 
