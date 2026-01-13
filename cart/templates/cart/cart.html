@@ -12,9 +12,35 @@
       <p>Size: {{ item.size }}</p>
       <p>Quantity: {{ item.quantity }}</p>
       <p>Price: €{{ item.product.price }}</p>
+
+<form method="post" action="{% url 'cart:update_cart' item.product.id %}">
+
+    {% csrf_token %}
+    <input type="number"
+    name="quantity"
+    value="{{ item.quantity }}"
+    min="1"
+    class="form-control d-inline-block w-auto">
+    <button type="submit" class="btn btn-primary btn-sm">
+        Update
+    </button>
+</form>
+
+<form method="post" action="{% url 'cart:remove_from_cart' item.product.id %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger btn-sm mt-2">
+        Remove
+    </button>
+</form>
+
   </div>
 {% empty %}
   <p>Your cart is empty.</p>
 {% endfor %}
+
+{% if cart_items %}
+  <hr>
+  <h4>Total: €{{ total }}</h4>
+{% endif %}
 
 {% endblock %}
