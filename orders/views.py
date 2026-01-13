@@ -7,7 +7,7 @@ def checkout(request):
     cart = request.session.get('cart', {})
 
     if not cart:
-        return redirect('products')
+        return redirect('products:product_list')
 
     if request.method == 'POST':
         form = OrderForm(request.POST)

@@ -1,12 +1,23 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container mt-5 text-center">
-    <h1>Thank you for your order</h1>
-    <p>Your order has been placed successfully.</p>
 
-    <a href="{% url 'products:product_list' %}" class="btn btn-primary mt-3">
+<div class="container mt-5 text-center">
+    <h1 class="mb-3">Thank you for your order 🎉</h1>
+
+    <p class="lead">
+        Your order has been placed successfully.
+    </p>
+
+    <p class="text-muted">
+        You will receive a confirmation shortly.
+    </p>
+
+    <hr class="my-4">
+
+    <a href="{% url 'products:product_list' %}" class="btn btn-primary">
         Continue Shopping
     </a>
 </div>
+
 {% endblock %}
