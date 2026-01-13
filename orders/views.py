@@ -12,23 +12,21 @@ def checkout(request):
     if request.method == 'POST':
         form = OrderForm(request.POST)
         if form.is_valid():
-            order = form.save(commit=False)
-            order.save()
-
+            order = form.save()
             request.session['cart'] = {}
             return redirect('checkout_success')
-
     else:
         form = OrderForm()
 
+    cart_data = cart_contents(request)
+
     context = {
         'form': form,
-        'cart_items': cart_contents(request)['cart_items'],
-        'total': cart_contents(request)['total'],
+        'cart_items': cart_data['cart_items'],
+        'total': cart_data['total'],
     }
 
     return render(request, 'orders/checkout.html', context)
-
 
 def checkout_success(request):
     return render(request, 'orders/checkout_success.html')

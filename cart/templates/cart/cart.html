@@ -41,6 +41,13 @@
 {% if cart_items %}
   <hr>
   <h4>Total: €{{ total }}</h4>
+
+  <div class="mt-4">
+    <a href="{% url 'checkout' %}" class="btn btn-success">
+      Proceed to Checkout
+    </a>
+  </div>
+
 {% endif %}
 
 {% endblock %}
