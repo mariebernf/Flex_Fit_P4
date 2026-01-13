@@ -61,6 +61,10 @@ Responsiveness:
 | Cart page did not load. | Missing ( cart: ) namespace in {% url %} template tags. | Added the correct ( cart: ) namespace to all cart-related template URLs. | The cart page now loads correctly. The quanity and remove funciton now work. |
 |||||
 | Checkout success page returned "Template does not exist error". | The checkout success html file was placed outside of the orders/templates/orders folders. | File was placed in the correct folder. | Page now loads correctly. |
+|||||
+| Users could not complete a purchase after adding items to the cart. | There was no button on the cart page to go to the checkout page. | A "Proceed to Checkout" button was added to the cart page. | Users can now move from the cart to the checkout page and complete their order. |
+|||||
+|  |  |  |  |
 
 
 
