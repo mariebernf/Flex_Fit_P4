@@ -3,9 +3,21 @@ from products.models import Product
 
 
 def view_cart(request):
-    cart = request.session.get('cart', {})
-    products = Product.objects.filter(id__in=cart.keys())
-    return render(request, 'cart/cart.html', {'products': products})
+    return render(request, 'cart/cart.html')
+
+    for item_id, item_data in cart.items():
+        product = get_object_or_404(Product, id=item_id)
+        cart_items.append({
+            'product': product,
+            'quantity': item_data['quantity'],
+            'size': item_data['size'],
+        })
+
+    context = {
+        'cart_items': cart_items,
+    }
+
+    return render(request, 'cart/cart.html', context)
 
 
 def add_to_cart(request, product_id):
