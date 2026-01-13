@@ -17,12 +17,24 @@
 
         <h4>£{{ product.price }}</h4>
 
-        <a href="{% url 'cart:add_to_cart' product.id %}" class="btn btn-primary mt-3">
-        Add to Cart
-        </a>
+        <form method="post" action="{% url 'cart:add_to_cart' product.id %}">
+            {% csrf_token %}
+
+        <label for="size" class="form-label mt-3">Size</label>
+        <select name="size" id="size" class="form-select" required>
+            <option value="">Choose a size</option>
+            <option value="S">Small</option>
+            <option value="M">Medium</option>
+            <option value="L">Large</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary mt-3">
+            Add to Cart
+        </button>
+
+        </form>
 
         <p>
-            <strong>Size:</strong> {{ product.size }}<br>
             <strong>Gender:</strong> {{ product.get_gender_display }}
         </p>
     </div>

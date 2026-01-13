@@ -10,26 +10,38 @@ def view_cart(request):
 
 def add_to_cart(request, product_id):
     cart = request.session.get('cart', {})
-    product_id = str(product_id)
 
-    if product_id in cart:
-        cart[product_id] += 1
-    else:
-        cart[product_id] = 1
+    if request.method == "POST":
+        size = request.POST.get('size')
+        quantity = int(request.POST.get('quantity', 1))
 
-    request.session['cart'] = cart
+        if not size:
+            return redirect('products:product_detail', product_id=product_id)
+
+        product_id = str(product_id)
+
+        if product_id in cart:
+            cart[product_id]['quantity'] += quantity
+        else:
+            cart[product_id] = {
+                'quantity': quantity,
+                'size': size,
+            }
+
+        request.session['cart'] = cart
+
     return redirect('cart:view_cart')
 
 
 def update_cart(request, product_id):
-    product = get_object_or_404(Product, id=product_id)
-    quantity = int(request.POST.get('quantity'))
     cart = request.session.get('cart', {})
+    product_id = str(product_id)
+    quantity = int(request.POST.get('quantity'))
 
     if quantity > 0:
-        cart[str(product_id)] = quantity
+        cart[product_id]['quantity'] = quantity
     else:
-        cart.pop(str(product_id), None)
+        cart.pop(product_id, None)
 
     request.session['cart'] = cart
     return redirect('cart:view_cart')
