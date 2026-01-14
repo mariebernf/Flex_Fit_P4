@@ -12,9 +12,14 @@ def checkout(request):
     if request.method == 'POST':
         form = OrderForm(request.POST)
         if form.is_valid():
-            order = form.save()
+            order = form.save(commit=False)
+            cart_data = cart_contents(request)
+            order.order_total = cart_data['total']
+            order.save()
+
             request.session['cart'] = {}
             return redirect('checkout_success')
+
     else:
         form = OrderForm()
 
