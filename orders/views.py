@@ -3,6 +3,7 @@ from .forms import OrderForm
 from cart.context_processors import cart_contents
 from .models import OrderLineItem
 
+
 def checkout(request):
     cart = request.session.get('cart', {})
 
@@ -31,7 +32,7 @@ def checkout(request):
             request.session['cart'] = {}
 
             # Redirect to success page
-            return redirect('checkout_success')
+            return redirect('checkout_success', order_number=order.order_number)
     else:
         form = OrderForm()
 
@@ -47,5 +48,7 @@ def checkout(request):
     return render(request, 'orders/checkout.html', context)
 
 
-def checkout_success(request):
-    return render(request, 'orders/checkout_success.html')
+def checkout_success(request, order_number):
+    return render(request, 'orders/checkout_success.html', {
+        'order_number': order_number
+    })

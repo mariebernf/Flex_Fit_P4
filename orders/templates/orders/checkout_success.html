@@ -5,15 +5,12 @@
 <div class="container mt-5 text-center">
     <h1 class="mb-3">Thank you for your order 🎉</h1>
 
-    <p class="lead">
-        Your order has been placed successfully.
+    <p>
+        Your order number is:<br>
+        <strong>{{ order_number }}</strong>
     </p>
 
-    <p class="text-muted">
-        You will receive a confirmation shortly.
-    </p>
-
-    <hr class="my-4">
+    <p>Please keep this for your records.</p>
 
     <a href="{% url 'products:product_list' %}" class="btn btn-primary">
         Continue Shopping
