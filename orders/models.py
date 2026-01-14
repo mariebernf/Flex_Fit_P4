@@ -16,3 +16,22 @@ class Order(models.Model):
 
     def __str__(self):
         return f"Order {self.id} - {self.full_name}"
+
+
+from products.models import Product
+
+class OrderLineItem(models.Model):
+    order = models.ForeignKey(
+        Order,
+        related_name='lineitems',
+        on_delete=models.CASCADE
+    )
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE
+    )
+    size = models.CharField(max_length=10)
+    quantity = models.PositiveIntegerField()
+
+    def __str__(self):
+        return f'{self.product.name} ({self.size}) x {self.quantity}'
