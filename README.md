@@ -64,10 +64,9 @@ Responsiveness:
 |||||
 | Users could not complete a purchase after adding items to the cart. | There was no button on the cart page to go to the checkout page. | A "Proceed to Checkout" button was added to the cart page. | Users can now move from the cart to the checkout page and complete their order. |
 |||||
+| Checkout success page came up NoReverseMatch error when adding a "Continue Shopping" link. | Template was not using correct URL route for the button. | Updated template to use the correct URL ( products:product_list ). | "Continue Shopping" button now works and redirects to the product list page. |
+|||||
 |  |  |  |  |
-
-
-
 
 ## Credits
 
