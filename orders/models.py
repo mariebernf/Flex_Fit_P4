@@ -11,7 +11,6 @@ class Order(models.Model):
         editable=False,
         unique=True
     )
-
     full_name = models.CharField(max_length=50)
     email = models.EmailField()
     phone_number = models.CharField(max_length=20)
@@ -24,20 +23,16 @@ class Order(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, default=0)
 
-
     def _generate_order_number(self):
         return uuid.uuid4().hex.upper()
-
 
     def save(self, *args, **kwargs):
         if not self.order_number:
             self.order_number = self._generate_order_number()
         super().save(*args, **kwargs)
 
-
     def __str__(self):
         return f"Order {self.id} - {self.full_name}"
-
 
 class OrderLineItem(models.Model):
     order = models.ForeignKey(
@@ -45,12 +40,23 @@ class OrderLineItem(models.Model):
         related_name='lineitems',
         on_delete=models.CASCADE
     )
+ 
     product = models.ForeignKey(
         Product,
         on_delete=models.CASCADE
     )
+
     size = models.CharField(max_length=10)
     quantity = models.PositiveIntegerField()
+    lineitem_total = models.DecimalField(
+        max_digits=6,
+        decimal_places=2,
+        editable=False
+    )
+
+    def save(self, *args, **kwargs):
+        self.lineitem_total = self.product.price * self.quantity
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f'{self.product.name} ({self.size}) x {self.quantity}'
