@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from .forms import OrderForm
 from cart.context_processors import cart_contents
-from .models import OrderLineItem
+from .models import Order, OrderLineItem
+from django.contrib.auth.decorators import login_required
 
 
 def checkout(request):
@@ -52,3 +53,8 @@ def checkout_success(request, order_number):
     return render(request, 'orders/checkout_success.html', {
         'order_number': order_number
     })
+
+@login_required
+def order_history(request):
+    orders = Order.objects.filter(email=request.user.email).order_by('-date')
+    return render(request, 'orders/order_history.html', {'orders': orders})

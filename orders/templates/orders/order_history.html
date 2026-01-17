@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>My Orders</h2>
+
+{% if orders %}
+  <ul class="list-group mt-3">
+    {% for order in orders %}
+      <li class="list-group-item">
+        <strong>Order:</strong> {{ order.order_number }}<br>
+        <strong>Date:</strong> {{ order.date|date:"d M Y" }}<br>
+        <strong>Total:</strong> £{{ order.order_total }}<br>
+        <a href="{% url 'checkout_success' order.order_number %}">
+          View Order
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>You have no orders yet.</p>
+{% endif %}
+
+{% endblock %}
