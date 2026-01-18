@@ -34,6 +34,14 @@ View here:
 
 **Cloning the Github Respository:**
 
+## Security
+
+- User login and registration are handled using Django Allauth.
+- Sensitive pages such as order history are protected using Django’s "login_required" decorator.
+- Users who are not logged in are redirected to the login page.
+- Navigation links change based on whether the user is logged in or not.
+- Direct URL access to protected pages is blocked.
+
 ## Testing
 
 ## Lighthouse reports
