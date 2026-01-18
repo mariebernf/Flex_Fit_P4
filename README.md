@@ -16,9 +16,30 @@ View here:
 
 ## Database Schema
 
-## Colour scheme
+### Colour Scheme
 
-## Typography
+| Element                | Colour / Class          | Purpose |
+|------------------------|------------------------|---------|
+| Navbar background.     | Dark gray / Bootstrap bg-dark (#212529). | Strong contrast, clean and modern look. Matches the footer. |
+| Navbar text and buttons.| White (#FFFFFF).         | High readability against the dark background. |
+| Footer background.      | Dark gray / Bootstrap bg-dark (#212529). | Matches the navbar for a consistent layout. |
+| Page background.        | White (#FFFFFF).         | Clean and makes the content easy to read. |
+
+### Button Styling
+
+| Element                    | Colour      | Purpose |
+|----------------------------|------------|---------|
+| Add to Cart / Primary Action.| Green.    | Indicates a positive action. |
+| Edit button.                 | Blue.       | Standard action for editing content. |
+| Delete button.               | Red.        | Brings attention to a destructive action. |
+
+
+### Typography
+
+- **Primary Font:** Lato from Google Fonts. 
+- **Fallback Font:** Sans-serif in case Lato doesn’t load.
+
+Lato is clean and highly readable. It complements the minimalist colour scheme of the website and works well with your Bootstrap styling.
 
 ## Wireframe
 
