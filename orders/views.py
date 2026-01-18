@@ -16,9 +16,14 @@ def checkout(request):
         if form.is_valid():
             # Save the order
             order = form.save(commit=False)
+
+            if request.user.is_authenticated:
+                order.user = request.user
+
             cart_data = cart_contents(request)
             order.order_total = cart_data['total']
             order.save()
+
 
             # Create order line items
             for item in cart_data['cart_items']:
@@ -37,8 +42,8 @@ def checkout(request):
     else:
         form = OrderForm()
 
-    # Always get cart data to display in template
     cart_data = cart_contents(request)
+
 
     context = {
         'form': form,
