@@ -99,6 +99,8 @@ Responsiveness:
 |||||
 | Orders placed by logged in users were not appearing in the order history page. | Orders were not linked to the logged in user. | Added a user foreign key to the Order model and assigned "order.user = request.user" during checkout. | Orders now appear correctly in the order history page for logged in users. |
 |||||
+| Cart caused a page error. | Cart session data was stored in two different formats ( numbers or dictionary with size ). | Updated the cart context processor to handle both types. | Cart now works correctly without errors. |
+|||||
 | . | . |  |  |
 
 ## Credits
