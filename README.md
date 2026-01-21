@@ -46,14 +46,29 @@ As a result, the same product appears multiple times in the shop, once per size.
 | Add to Cart / Primary Action.| Green.    | Indicates a positive action. |
 | Edit button.                 | Blue.       | Standard action for editing content. |
 | Delete button.               | Red.        | Brings attention to a destructive action. |
-
+| Shop now (Hero Section).     | White.        | Stands out againt the dark background, encourages users to start shopping. |
+| View Product Buttons.        | Bootstrap btn-dark. | Directs users to the products. |
 
 ### Typography
 
 - **Primary Font:** Lato from Google Fonts. 
 - **Fallback Font:** Sans-serif in case Lato doesn’t load.
 
-Lato is clean and highly readable. It complements the minimalist colour scheme of the website and works well with your Bootstrap styling.
+Lato is clean and highly readable. It complements the minimalist colour scheme of the website and works well with Bootstrap styling.
+
+### Homepage Styling
+
+* **Hero Section:** Hero section has a dark overlay, large heading, and a call to action button.
+
+* **Intro Section:** Centered text with a muted paragraph, which highlights the brands mission.
+
+* **Featured Products:** Responsive grid using Bootstrap cards, showing image, name, price, and a "View Product" button.
+
+* **Buttons:**
+  
+  **Shop Now:** Light button on the dark hero background for contrast.
+  
+  **View Product and View All Products:** Dark and outling buttons to stand out.
 
 ## Wireframe
 
