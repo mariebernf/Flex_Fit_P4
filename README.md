@@ -12,9 +12,23 @@ View here:
 
 ## Future Features
 
+* **Advanced Product Variations:** Implement a system to manage sizes and other attributes like colour as variations of a single product in the admin interface, simplifying stock management.
+  
+* **Improved Search and Filtering:** Add filters for size, price and category to help users find products more easily.
+  
+* **Enhanced User Accounts:** Include features like a wishlist and profile management.
+
 ## Design
 
-## Database Schema
+### Design Limitation: Product Size Variations
+
+Product sizes ( S, M, L ) are implemented as separate products instead of selectable size options within a single product in the admin interface.
+
+On the website, users can still select their size but in the admin, each size is managed as an individual product. This design keeps the product, cart, checkout, and order logic simple and reliable within the project timeframe. Each size is treated as its own product with an individual stock level, which helps ensure accurate ordering and stock management.
+
+As a result, the same product appears multiple times in the shop, once per size. A more advanced size variation system would be implemented in the future and is documented in the Future Features section.
+
+### Database Schema
 
 ### Colour Scheme
 
