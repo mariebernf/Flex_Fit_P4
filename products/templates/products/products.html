@@ -16,7 +16,9 @@
                     <div class="card h-100">
 
                         {% if product.image %}
-                            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                            <a href="{% url 'products:product_detail' product.id %}">
+                                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                            </a>
                         {% endif %}
 
                         <div class="card-body">
@@ -46,7 +48,9 @@
                     <div class="card h-100">
 
                         {% if product.image %}
-                            <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                            <a href="{% url 'products:product_detail' product.id %}">
+                                <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                            </a>
                         {% endif %}
 
                         <div class="card-body">
