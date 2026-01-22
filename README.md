@@ -229,9 +229,67 @@ Responsiveness:
 |||||
 | Cart caused a page error. | Cart session data was stored in two different formats ( numbers or dictionary with size ). | Updated the cart context processor to handle both types. | Cart now works correctly without errors. |
 |||||
-| . | . |  |  |
+|  |  |  |  |
 
 ## Credits
+
+### **Content and Learning Resources:**
+
+**Code Institute - Boutique Ado Tutorial**
+
+This project was influenced by the *Boutique Ado* tutorial provided by Code Institute. The tutorial was used as a learning reference for Django e-commerce concepts. The tutorial is available via the Code Institute learning platform.
+
+### Learning and Libraries:
+
+- [Django Documentation](https://docs.djangoproject.com/)
+
+- [Bootstrap Documentation](https://getbootstrap.com/docs/)
+
+### Media and Assets:
+
+Images used throughout the site were sourced from:
+
+- [Pexels](https://www.pexels.com/)
+
+- [Unsplash](https://unsplash.com/)
+
+### Image Optimisation:
+
+- [TinyPNG](https://tinypng.com/) was used to compress images and improve performance.
+
+### Favicon: 
+
+- Favicon was generated using [Favicon.io](https://favicon.io/).
+
+### Design and Typography:
+
+**Google Fonts:**
+
+- [Lato](https://fonts.google.com/specimen/Lato) font was imported from Google Fonts and used as the primary typography across the site.
+
+### Wireframes:
+
+- Wireframes were created using [Canva](https://www.canva.com/) to plan layout and page structure.
+
+### Icons:
+
+- Social media and user interface icons were sourced from [Font Awesome](https://fontawesome.com/).
+
+## Acknowledgements
+
+* **Code Institute for providing the learning materials, support and guidance.**
+
+* **Family and friends who participated in user testing and provided valuable feedback.**
+
+
+
+
+
+
+
+
+
+
 
 
  
