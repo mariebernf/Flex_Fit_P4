@@ -10,6 +10,47 @@ View here:
 
 ## Features
 
+### User Accounts and Authentication
+
+* Users can create an account, log in, and log out securely.
+* Authenticated users can view their personal order history.
+* Restricted pages are protected so only logged in users can access them.
+
+### Product Browsing
+
+* Users can browse products displayed with images, prices and size options.
+* Featured products are highlighted on the homepage.
+* Product images are clickable for easy navigation to product detail page.
+
+### Shopping Cart
+
+* Users can add products to the cart.
+* A cart icon in the navigation bar displays the current cart status.
+* Users can update quanties or remove items from the cart.
+
+### Checkout and Orders
+
+* Secure checkout process with order summary.
+* Orders are saved to the database upon successful checkout.
+* Users receive an order confirmation page displaying their order number.
+* Logged in users can view past orders via the "My Orders" page.
+
+### Admin Management
+
+* Admin users can add, edit, and delete products through the Django admin panel.
+* Stock levels are managed per product.
+* Orders and order line items are visible in the admin interface.
+
+### Responsive Design
+
+* The site is fully responsive and works across desktop, tablet and mobile devices.
+* Built using Bootstrap to ensure consistent layout and styling.
+
+### Error Handling
+
+* Custom 403 and 404 error pages are implemented for improved user experience.
+* Authentication prevents unauthorised access to restricted pages.
+
 ## Future Features
 
 * **Advanced Product Variations:** Implement a system to manage sizes and other attributes like colour as variations of a single product in the admin interface, simplifying stock management.
@@ -18,7 +59,9 @@ View here:
   
 * **Enhanced User Accounts:** Include features like a wishlist, favorites and profile management.
 
-* **Separate Men's and Women's Pages:** Add separate shopping pages for Men's and Women's products to improve naviagation and filtering. And to improve user experience.
+* **Separate Men's and Women's Pages:** Add separate shopping pages for Men's and Women's products to improve naviagation and filtering and to improve user experience.
+
+* **Saved Delivery Details:** Allow logged in users to save delivery information to speed up future checkouts.
 
 ## Design
 
