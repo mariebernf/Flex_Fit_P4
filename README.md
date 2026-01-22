@@ -16,17 +16,27 @@ View here:
   
 * **Improved Search and Filtering:** Add filters for size, price and category to help users find products more easily.
   
-* **Enhanced User Accounts:** Include features like a wishlist and profile management.
+* **Enhanced User Accounts:** Include features like a wishlist, favorites and profile management.
+
+* **Separate Men's and Women's Pages:** Add separate shopping pages for Men's and Women's products to improve naviagation and filtering. And to improve user experience.
 
 ## Design
 
-### Design Limitation: Product Size Variations
+### Design Limitations: 
+
+**Product Size Variations:**
 
 Product sizes ( S, M, L ) are implemented as separate products instead of selectable size options within a single product in the admin interface.
 
 On the website, users can still select their size but in the admin, each size is managed as an individual product. This design keeps the product, cart, checkout, and order logic simple and reliable within the project timeframe. Each size is treated as its own product with an individual stock level, which helps ensure accurate ordering and stock management.
 
 As a result, the same product appears multiple times in the shop, once per size. A more advanced size variation system would be implemented in the future and is documented in the Future Features section.
+
+**Men's and Women's Product Pages:**
+
+Separte Men's and Women's pages were not implemented in this project. All products are displayed on a single shop page.
+
+This decision was made to keep the project focused on core e-commerce funtionality within the project timeframe. Products are still labelled by gender, allowing users to browse easily. Separate category pages are planned as a future feature.
 
 ### Database Schema
 
@@ -101,6 +111,24 @@ Lato is clean and highly readable. It complements the minimalist colour scheme o
 ## W3C CSS Validator
 
 **Manual testing:**
+
+**User testing:**
+
+**User Feedback Testing:** ( Testing carried out with family and friends. ) 
+
+During testing, it was noted that there was no button to continue shopping from the cart page. 
+
+**Fix:** A "Continue Shopping" button was added to the cart page, linking back to the products page to improve user navigation.
+
+**It was also noted:** 
+
+* The product sizes appear as separate listings for the same product. This was a known design limiation and is documented in the Design Limiations and Future Features sections.
+
+* That there is not a separte Men's and Women's shopping page. The reason for this is documented in the Design Limiations section and is also included in the Future Features section.
+
+**General Feedback:** 
+
+They reported the site was easy to navigate and liked the design of the website.
 
 Responsiveness: 
 
