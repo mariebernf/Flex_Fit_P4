@@ -127,7 +127,35 @@ Lato is clean and highly readable. It complements the minimalist colour scheme o
 
 ## Technologies used
 
+* Python – Core programming language used to build the backend logic.
+
+* Django – Python web framework used to develop the application.
+
+* HTML – Used for structuring the website content.
+
+* CSS – Used for custom styling and layout.
+
+* Bootstrap – Frontend framework used for responsive design and layout.
+
+* SQLite – Database used during development.
+
+* Git – Version control system used to track changes.
+
+* Heroku – Cloud platform used to deploy the application.
+
 ## Tools used
+
+* GitHub – Used to host the project repository.
+
+* VS Code – Code editor used to write and manage the project.
+
+* Django Admin – Used to manage products, orders, and site data.
+
+* Chrome DevTools – Used for debugging, testing responsiveness, and inspecting elements.
+
+* Google Fonts – Used to import the Lato font for site typography.
+
+* TinyPNG – Used to compress images to improve site performance.
 
 ## Deployment
 
