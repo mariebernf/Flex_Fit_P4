@@ -4,7 +4,57 @@ View here:
 
 ## Description
 
+Flex Fit is an e-commerce web application built using Django. Flex Fit sells fitness clothing for men and women. The site allows users to browse clothing products, select sizes, add items to a shopping cart, and complete a secure checkout process.
+
+The application supports user authentication, enabling users to create accounts, log in and view their order history. Admin users can manage products, stock levels and customer orders through the Django admin interface.
+
+The web site focuses on delivering core e-commerce functionality with a clean, minimal design and a responsive user experience across desktop, tablet and mobile devices.
+
 ## Project requirments
+
+This project was developed to meet the requirements of a full-stack Django web application with CRUD functionality, authentication, and a relational database.
+
+The key project requirements include:
+
+### Core Requirements:
+
+* Build a full-stack web application using Django.
+
+* Implement CRUD functionality for managing products and orders.
+
+* Use a relational database (SQLite during development).
+
+* Apply user authentication and authorisation.
+
+* Ensure the application is responsive and user-friendly.
+
+* Deploy the project to a live hosting platform.
+
+### E-commerce Functionality
+
+* Allow users to browse products with images, prices, and size options.
+
+* Enable users to add, update, and remove items from a shopping cart.
+
+* Provide a secure checkout process with order confirmation.
+
+* Store completed orders in the database.
+
+### Security and Access Control
+
+* Restrict access to certain pages to authenticated users only.
+
+* Display navigation options based on user login status.
+
+* Implement custom 403 and 404 error pages.
+
+### Admin Functionality
+
+* Allow admin user to add, edit, and delete products.
+
+* Mangage stock levels through the admin interface.
+
+* View customer orders and order line items.
 
 ## User stories
 
