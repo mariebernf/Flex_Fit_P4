@@ -60,11 +60,15 @@ The key project requirements include:
 
 | User Story | Requirement Met | Implementation | Screenshot |
 |------------|----------------|----------------|------------|
+| As a user, I want to browse and purchase fitness clothing for men and women. | Flex Fit e-commerce platform. | The homepage and the shop page display a range of men's and women's fitness clothing. | <img src="docs/screenshots/flex_fit_homepage.png" alt="Flex Fit Homepage" width="300"> |
 | As a user, I want to create an account so that I can place orders and view my order history. | User registration. | Users can sign up using Django Allauth via a registration form. | <img src="docs/screenshots/flex_fit_signup.png" alt="Signup Page" width="300"> |
-| As a user, I want to log in and log out securely. | Authentication. | Login and logout functionality is implemented using Django Allauth. Navigation link change based on authentication status. | <img src="docs/screenshots/login_flex_fit.png" alt="Login / Logout" width="300"> |
-| As a user, I want to browse products. | Shop page. | Products are displayed on the shop page, with image and prices. | <img src="docs/screenshots/flex_fit_shop.png" alt="Shop Page" width="300"> |
-|  |  |  |  |
-|  |  |  |  |
+| As a user, I want to log in and log out securely. | Authentication. | Login and logout functionality is implemented using Django Allauth. Navigation links change based on authentication status. | <img src="docs/screenshots/login_flex_fit.png" alt="Login / Logout" width="300"> |
+| As a user, I want to browse products. | Shop page. | Products are displayed on the shop page with images and prices. | <img src="docs/screenshots/flex_fit_shop.png" alt="Shop Page" width="300"> |
+| As a user, I want to view detailed product information so that I can make an informed decision. | Product detail page. | Clicking on a product image or button takes the user to a product detail page showing description, price and size. | <img src="docs/screenshots/flex_fit_detailpage.png" alt="Product Detail Page" width="300"> |
+| As a user, I want to add products to a shopping cart so that I can review, update or remove items before completing my purchase. | Shopping cart functionality. | Users can add products, view the cart via the navigation icon, update quantities, and remove items. | <img src="docs/screenshots/flex_fit_cart.png" alt="Shopping Cart" width="300"> |
+| As a user, I want to proceed to checkout so that I can complete my purchase. | Checkout process. | A checkout page allows users to enter delivery details. | <img src="docs/screenshots/flex_fit_checkout.png" alt="Checkout Page" width="300"> |
+| As a user, I want to receive confirmation after placing an order. | Order confirmation. | After checkout, users are shown an order success page with an order number. | <img src="docs/screenshots/flex_fit_success.png" alt="Order Success Page" width="300"> |
+| As a logged-in user, I want to view my past orders. | Order history. | Authenticated users can access a "My Orders" page displaying previous orders. | <img src="docs/screenshots/flex_fit_orders.png" alt="Order History Page" width="300"> |
 
 
 ## Features
