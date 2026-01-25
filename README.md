@@ -66,17 +66,23 @@ The key project requirements include:
 * Authenticated users can view their personal order history.
 * Restricted pages are protected so only logged in users can access them.
 
+---
+
 ### Product Browsing
 
 * Users can browse products displayed with images, prices and size options.
 * Featured products are highlighted on the homepage.
 * Product images are clickable for easy navigation to product detail page.
 
+---
+
 ### Shopping Cart
 
 * Users can add products to the cart.
 * A cart icon in the navigation bar displays the current cart status.
-* Users can update quanties or remove items from the cart.
+* Users can update quantities or remove items from the cart.
+
+---
 
 ### Checkout and Orders
 
@@ -85,16 +91,22 @@ The key project requirements include:
 * Users receive an order confirmation page displaying their order number.
 * Logged in users can view past orders via the "My Orders" page.
 
+---
+
 ### Admin Management
 
 * Admin users can add, edit, and delete products through the Django admin panel.
 * Stock levels are managed per product.
 * Orders and order line items are visible in the admin interface.
 
+---
+
 ### Responsive Design
 
 * The site is fully responsive and works across desktop, tablet and mobile devices.
 * Built using Bootstrap to ensure consistent layout and styling.
+
+---
 
 ### Error Handling
 
@@ -103,15 +115,57 @@ The key project requirements include:
 
 ## Future Features
 
-* **Advanced Product Variations:** Implement a system to manage sizes and other attributes like colour as variations of a single product in the admin interface, simplifying stock management.
-  
-* **Improved Search and Filtering:** Add filters for size, price and category to help users find products more easily.
-  
-* **Enhanced User Accounts:** Include features like a wishlist, favorites and profile management.
+### Advanced Product Variations
 
-* **Separate Men's and Women's Pages:** Add separate shopping pages for Men's and Women's products to improve naviagation and filtering and to improve user experience.
+* Implement a system to manage sizes and other attributes like colour as variations of a single product in the admin interface, simplifying stock management.
 
-* **Saved Delivery Details:** Allow logged in users to save delivery information to speed up future checkouts.
+---
+  
+### Improved Search and Filtering
+
+* Add filters for size, price and category to help users find products more easily.
+
+---
+
+### Enhanced User Accounts
+
+* Include features like a wishlist, favorites and profile management.
+
+---
+
+### Separate Men's and Women's Pages
+
+* Add separate shopping pages for Men's and Women's products to improve naviagation and filtering and to improve user experience.
+
+---
+
+### Saved Delivery Details
+
+* Allow logged in users to save delivery information to speed up future checkouts.
+
+---
+
+### Stripe Payment Integration
+
+* Integrate Stripe to enable real online payments. Payments are currently simulated to focus on core e-commerce functionality with the project timeframe.
+
+---
+
+### Logo
+
+* Develop a custom logo to improve visual recognition across the site.
+
+---
+
+### Product Reviews
+
+* Allow users to leave reviews and ratings for products.
+
+---
+
+### Order Status Tracking
+
+* Allow users to view order status updates such as "Processing" or "Dispatched.
 
 ## Design
 
