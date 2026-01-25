@@ -4,7 +4,57 @@ View here:
 
 ## Description
 
+Flex Fit is an e-commerce web application built using Django. Flex Fit sells fitness clothing for men and women. The site allows users to browse clothing products, select sizes, add items to a shopping cart, and complete a secure checkout process.
+
+The application supports user authentication, enabling users to create accounts, log in and view their order history. Admin users can manage products, stock levels and customer orders through the Django admin interface.
+
+The web site focuses on delivering core e-commerce functionality with a clean, minimal design and a responsive user experience across desktop, tablet and mobile devices.
+
 ## Project requirments
+
+This project was developed to meet the requirements of a full-stack Django web application with CRUD functionality, authentication, and a relational database.
+
+The key project requirements include:
+
+### Core Requirements:
+
+* Build a full-stack web application using Django.
+
+* Implement CRUD functionality for managing products and orders.
+
+* Use a relational database (SQLite during development).
+
+* Apply user authentication and authorisation.
+
+* Ensure the application is responsive and user-friendly.
+
+* Deploy the project to a live hosting platform.
+
+### E-commerce Functionality
+
+* Allow users to browse products with images, prices, and size options.
+
+* Enable users to add, update, and remove items from a shopping cart.
+
+* Provide a secure checkout process with order confirmation.
+
+* Store completed orders in the database.
+
+### Security and Access Control
+
+* Restrict access to certain pages to authenticated users only.
+
+* Display navigation options based on user login status.
+
+* Implement custom 403 and 404 error pages.
+
+### Admin Functionality
+
+* Allow admin user to add, edit, and delete products.
+
+* Mangage stock levels through the admin interface.
+
+* View customer orders and order line items.
 
 ## User stories
 
@@ -16,17 +66,23 @@ View here:
 * Authenticated users can view their personal order history.
 * Restricted pages are protected so only logged in users can access them.
 
+---
+
 ### Product Browsing
 
 * Users can browse products displayed with images, prices and size options.
 * Featured products are highlighted on the homepage.
 * Product images are clickable for easy navigation to product detail page.
 
+---
+
 ### Shopping Cart
 
 * Users can add products to the cart.
 * A cart icon in the navigation bar displays the current cart status.
-* Users can update quanties or remove items from the cart.
+* Users can update quantities or remove items from the cart.
+
+---
 
 ### Checkout and Orders
 
@@ -35,16 +91,22 @@ View here:
 * Users receive an order confirmation page displaying their order number.
 * Logged in users can view past orders via the "My Orders" page.
 
+---
+
 ### Admin Management
 
 * Admin users can add, edit, and delete products through the Django admin panel.
 * Stock levels are managed per product.
 * Orders and order line items are visible in the admin interface.
 
+---
+
 ### Responsive Design
 
 * The site is fully responsive and works across desktop, tablet and mobile devices.
 * Built using Bootstrap to ensure consistent layout and styling.
+
+---
 
 ### Error Handling
 
@@ -53,15 +115,57 @@ View here:
 
 ## Future Features
 
-* **Advanced Product Variations:** Implement a system to manage sizes and other attributes like colour as variations of a single product in the admin interface, simplifying stock management.
-  
-* **Improved Search and Filtering:** Add filters for size, price and category to help users find products more easily.
-  
-* **Enhanced User Accounts:** Include features like a wishlist, favorites and profile management.
+### Advanced Product Variations
 
-* **Separate Men's and Women's Pages:** Add separate shopping pages for Men's and Women's products to improve naviagation and filtering and to improve user experience.
+* Implement a system to manage sizes and other attributes like colour as variations of a single product in the admin interface, simplifying stock management.
 
-* **Saved Delivery Details:** Allow logged in users to save delivery information to speed up future checkouts.
+---
+  
+### Improved Search and Filtering
+
+* Add filters for size, price and category to help users find products more easily.
+
+---
+
+### Enhanced User Accounts
+
+* Include features like a wishlist, favorites and profile management.
+
+---
+
+### Separate Men's and Women's Pages
+
+* Add separate shopping pages for Men's and Women's products to improve naviagation and filtering and to improve user experience.
+
+---
+
+### Saved Delivery Details
+
+* Allow logged in users to save delivery information to speed up future checkouts.
+
+---
+
+### Stripe Payment Integration
+
+* Integrate Stripe to enable real online payments. Payments are currently simulated to focus on core e-commerce functionality with the project timeframe.
+
+---
+
+### Logo
+
+* Develop a custom logo to improve visual recognition across the site.
+
+---
+
+### Product Reviews
+
+* Allow users to leave reviews and ratings for products.
+
+---
+
+### Order Status Tracking
+
+* Allow users to view order status updates such as "Processing" or "Dispatched.
 
 ## Design
 
@@ -127,7 +231,35 @@ Lato is clean and highly readable. It complements the minimalist colour scheme o
 
 ## Technologies used
 
+* Python – Core programming language used to build the backend logic.
+
+* Django – Python web framework used to develop the application.
+
+* HTML – Used for structuring the website content.
+
+* CSS – Used for custom styling and layout.
+
+* Bootstrap – Frontend framework used for responsive design and layout.
+
+* SQLite – Database used during development.
+
+* Git – Version control system used to track changes.
+
+* Heroku – Cloud platform used to deploy the application.
+
 ## Tools used
+
+* GitHub – Used to host the project repository.
+
+* VS Code – Code editor used to write and manage the project.
+
+* Django Admin – Used to manage products, orders, and site data.
+
+* Chrome DevTools – Used for debugging, testing responsiveness, and inspecting elements.
+
+* Google Fonts – Used to import the Lato font for site typography.
+
+* TinyPNG – Used to compress images to improve site performance.
 
 ## Deployment
 
@@ -201,9 +333,67 @@ Responsiveness:
 |||||
 | Cart caused a page error. | Cart session data was stored in two different formats ( numbers or dictionary with size ). | Updated the cart context processor to handle both types. | Cart now works correctly without errors. |
 |||||
-| . | . |  |  |
+|  |  |  |  |
 
 ## Credits
+
+### **Content and Learning Resources:**
+
+**Code Institute - Boutique Ado Tutorial**
+
+This project was influenced by the *Boutique Ado* tutorial provided by Code Institute. The tutorial was used as a learning reference for Django e-commerce concepts. The tutorial is available via the Code Institute learning platform.
+
+### Learning and Libraries:
+
+- [Django Documentation](https://docs.djangoproject.com/)
+
+- [Bootstrap Documentation](https://getbootstrap.com/docs/)
+
+### Media and Assets:
+
+Images used throughout the site were sourced from:
+
+- [Pexels](https://www.pexels.com/)
+
+- [Unsplash](https://unsplash.com/)
+
+### Image Optimisation:
+
+- [TinyPNG](https://tinypng.com/) was used to compress images and improve performance.
+
+### Favicon: 
+
+- Favicon was generated using [Favicon.io](https://favicon.io/).
+
+### Design and Typography:
+
+**Google Fonts:**
+
+- [Lato](https://fonts.google.com/specimen/Lato) font was imported from Google Fonts and used as the primary typography across the site.
+
+### Wireframes:
+
+- Wireframes were created using [Canva](https://www.canva.com/) to plan layout and page structure.
+
+### Icons:
+
+- Social media and user interface icons were sourced from [Font Awesome](https://fontawesome.com/).
+
+## Acknowledgements
+
+* **Code Institute for providing the learning materials, support and guidance.**
+
+* **Family and friends who participated in user testing and provided valuable feedback.**
+
+
+
+
+
+
+
+
+
+
 
 
  
