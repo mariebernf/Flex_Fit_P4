@@ -58,6 +58,15 @@ The key project requirements include:
 
 ## User stories
 
+| User Story | Requirement Met | Implementation | Screenshot |
+|------------|----------------|----------------|------------|
+| As a user, I want to create an account so that I can place orders and view my order history. | User registration. | Users can sign up using Django Allauth via a registration form. | <img src="docs/screenshots/flex_fit_signup.png" alt="Signup Page" width="300"> |
+| As a user, I want to log in and log out securely. | Authentication. | Login and logout functionality is implemented using Django Allauth. Navigation link change based on authentication status. | <img src="docs/screenshots/login_flex_fit.png" alt="Login / Logout" width="300"> |
+| As a user, I want to browse products. | Shop page. | Products are displayed on the shop page, with image and prices. | <img src="docs/screenshots/flex_fit_shop.png" alt="Shop Page" width="300"> |
+|  |  |  |  |
+|  |  |  |  |
+
+
 ## Features
 
 ### User Accounts and Authentication
