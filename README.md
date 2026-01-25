@@ -293,9 +293,13 @@ Each order can contain multiple order line items.
 | Element                | Colour / Class          | Purpose |
 |------------------------|------------------------|---------|
 | Navbar background.     | Dark gray / Bootstrap bg-dark (#212529). | Strong contrast, clean and modern look. Matches the footer. |
-| Navbar text and buttons.| White (#FFFFFF).         | High readability against the dark background. |
+| Navbar text and buttons.| Bootstrap navbar-dark links (#f8f9fa). ( Logo text is white. ) | Subtle styling to complement the white logo text and maintain readability. |
 | Footer background.      | Dark gray / Bootstrap bg-dark (#212529). | Matches the navbar for a consistent layout. |
 | Page background.        | White (#FFFFFF).         | Clean and makes the content easy to read. |
+
+| Navbar | Footer | Homepage | View Product Button |
+|--------|--------|----------|-------------------|
+| <img src="docs/screenshots/flex_fit_navbar.png" alt="Navbar" width="200"> | <img src="docs/screenshots/flex_fit_footer.png" alt="Footer" width="200"> | <img src="docs/screenshots/flex_fit_homepage.png" alt="Homepage" width="200"> | <img src="docs/screenshots/flex_fit_viewproducts.png" alt="View Product Button" width="200"> |
 
 ### Button Styling
 
