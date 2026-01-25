@@ -187,6 +187,94 @@ This decision was made to keep the project focused on core e-commerce funtionali
 
 ### Database Schema
 
+The project uses Django's built in ORM with SQLite database. 
+
+---
+
+### User ( Django Default Model )
+
+| Field | Type | Purpose |
+|------|------|--------|
+| id | Integer | Unique identifier for each user |
+| username | CharField | Used for user authentication |
+| email | EmailField | Stores the user’s email address |
+| password | Hashed | Securely stores the user’s password |
+| is_staff | Boolean | Allows access to the admin panel |
+| is_superuser | Boolean | Grants full administrative permissions |
+
+The User model handles authentication and is linked to customer orders.
+
+---
+
+### Category Model
+
+| Field | Type | Purpose |
+|------|------|--------|
+| id | Integer | Unique identifier for each category |
+| name | CharField | Name of the category |
+| description | TextField | Optional category description |
+
+Categories are used to group products for easier organisation and browsing.
+
+---
+
+### Product Model
+
+| Field | Type | Purpose |
+|------|------|--------|
+| id | Integer | Unique identifier for each product |
+| name | CharField | Name of the product |
+| category | ForeignKey (Category) | Links product to a category |
+| price | DecimalField | Price of the product |
+| size | CharField | Product size (S, M, L, XL) |
+| gender | CharField | Target gender (Men, Women, Unisex) |
+| stock_quantity | PositiveIntegerField | Available stock |
+| description | TextField | Product description |
+| is_active | Boolean | Controls product visibility |
+| image | ImageField | Product image |
+
+Each size variation is stored as a separate product, as documented in the Design Limitations section.
+
+---
+
+### Order Model
+
+| Field | Type | Purpose |
+|------|------|--------|
+| id | Integer | Unique identifier for each order |
+| order_number | CharField | Automatically generated order reference |
+| user | ForeignKey (User) | Links order to a registered user |
+| full_name | CharField | Customer’s full name |
+| email | EmailField | Customer’s email address |
+| phone_number | CharField | Customer’s phone number |
+| country | CharField | Delivery country |
+| postcode | CharField | Delivery postcode |
+| town_or_city | CharField | Delivery city |
+| street_address1 | CharField | Primary street address |
+| street_address2 | CharField | Secondary address (optional) |
+| county | CharField | County (optional) |
+| date | DateTimeField | Date the order was created |
+| order_total | DecimalField | Total cost of the order |
+
+Orders are created during checkout and linked to the user when logged in.
+
+---
+
+### OrderLineItem Model
+
+| Field | Type | Purpose |
+|------|------|--------|
+| id | Integer | Unique identifier for each line item |
+| order | ForeignKey (Order) | Links item to an order |
+| product | ForeignKey (Product) | Product included in the order |
+| size | CharField | Selected product size |
+| quantity | PositiveIntegerField | Quantity ordered |
+| lineitem_total | DecimalField | Total cost for the line item |
+
+Each order can contain multiple order line items.
+
+---
+
 ### Colour Scheme
 
 | Element                | Colour / Class          | Purpose |
@@ -227,7 +315,11 @@ Lato is clean and highly readable. It complements the minimalist colour scheme o
   
   **View Product and View All Products:** Dark and outling buttons to stand out.
 
-## Wireframe
+## Wireframes
+
+Wireframes were created using Canva to plan the layout and stucture of the website for both mobile and desktop devices.
+
+You can view the wireframes here: [View Wireframes](docs/wireframes.md)
 
 ## Technologies used
 
