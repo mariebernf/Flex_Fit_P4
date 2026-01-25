@@ -231,7 +231,7 @@ Lato is clean and highly readable. It complements the minimalist colour scheme o
 
 Wireframes were created using Canva to plan the layout and stucture of the website for both mobile and desktop devices.
 
-You can view the wireframes here: [View Wireframes](WIREFRAMES.md)
+You can view the wireframes here: [View Wireframes](wireframes.md)
 
 ## Technologies used
 
