@@ -372,11 +372,91 @@ You can view the wireframes here: [View Wireframes](docs/wireframes.md)
 
 ## Deployment
 
+**Known issues / Deployment notes:**
+
+* Product images uploaded via the Django admin interface do not show on Heroku due to its ephemeral filesytem.
+  In a production environment, a cloud based media storage solution such as Cloudinary would be implemented.
+
+---
+
 **Deployment steps:**
+
+The project was deployed to Heroku using the following steps:
+
+**1. Create a new Heroku app:**
+
+* Log in to Heroku
+* Click New → Create new app
+* Choose an app name
+* Select the EU region
+
+---
+
+**2. Configure environment variables:**
+
+* Navigate to Settings → Reveal Config Vars
+* Add the following variables:
+  - SECRET_KEY
+  - DEBUG (set to False in production)
+
+---
+
+**3. Prepare the project for deployment:**
+
+* Install required packages:
+  - gunicorn
+  - python-dotenv
+  - Update requirements.txt
+  - Create a Procfile with: web: gunicorn main.wsgi
+
+---
+
+
+**4. Configure Django settings:**
+
+* Set SECRET_KEY to use environment variables
+* Set DEBUG to False for production
+* Configure ALLOWED_HOSTS to include the Heroku app URL
+
+---
+
+**5. Deploy to Heroku:**
+
+* Connect the Heroku app to the GitHub repository
+* Enable automatic or manual deploys
+* Deploy the main branch
+
+---
+
+**6. Finalise deployment:**
+
+* Run migrations on Heroku
+* Create a superuser for admin access
+* Verify the application loads correctly
+
+---
 
 **Forking the Repository:**
 
+1. Log in to GitHub
+
+2. Navigate to the repository
+
+3. Click the Fork button in the top-right corner
+
+4. A copy of the repository will be created in your GitHub account
+
+---
+
 **Cloning the Github Respository:**
+
+1. Choose the location where you want to store the cloned repository.
+
+2. Open your terminal or command prompt.
+  
+4. In the terminal, type the folling command: git clone and your https://github.com/yourusername/your-repo.git
+  
+5. After cloning the repository, change the directory into the project folder by using the cd command: *cd your-repo-name *Now you can open the cloned repository in a code editor and make changes.
 
 ## Security
 
