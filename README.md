@@ -170,6 +170,12 @@ The key project requirements include:
 
 ---
 
+### Persistent Product Images
+
+* Use a cloud based storage solution (e.g. Cloudinary) to allow product images to persist in production.
+
+---
+
 ### Product Reviews
 
 * Allow users to leave reviews and ratings for products.
@@ -544,6 +550,10 @@ Responsiveness:
 | Cart caused a page error. | Cart session data was stored in two different formats ( numbers or dictionary with size ). | Updated the cart context processor to handle both types. | Cart now works correctly without errors. |
 |||||
 |  |  |  |  |
+
+**known issues:**
+
+* Product images not showing on Heroku: Images uploaded via the Django admin appear locally but do not show on the deployed site becasue of Heroku's filesystem is ephemeral. In a production environment, a cloud based storage solution such as Cloudinary would be used to store product images.
 
 ## Credits
 
