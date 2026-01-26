@@ -29,7 +29,11 @@ DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = [
+    'flex-fit-p4-dd9237a311ff.herokuapp.com',
+    'localhost',
+    '127.0.0.1'
+    ]
 
 
 # Application definition
