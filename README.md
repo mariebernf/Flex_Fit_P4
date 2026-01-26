@@ -394,9 +394,30 @@ You can view the wireframes here: [View Wireframes](docs/wireframes.md)
 
 ## W3C CSS Validator
 
-**Manual testing:**
+## Manual Testing
 
-**User testing:**
+| Feature | Test Action | Expected Result | Actual Result | Pass/Fail |
+|------|-----------|----------------|---------------|-----------|
+| User Registration. | Submit sign-up form with valid details. | User account is created and user is logged in. |  |  |
+| User Registration. | Submit sign-up form with invalid or missing fields. | Error message is displayed and account is not created. |  |  |
+| Login. | Log in with valid credentials. | User is logged in and navigation updates. |  |  |
+| Login. | Log in with invalid credentials. | Error message is displayed. |  |  |
+| Logout. | Click logout link. | User is logged out and redirected appropriately. |  |  |
+| Product Browsing. | View shop page. | Products are displayed with images, prices and buttons. |  |  |
+| Product Detail. | Click on a product. | Product detail page loads with correct information. |  |  |
+| Add to Cart. | Add product to cart. | Product appears in cart with correct quantity. |  |  |
+| Cart Management. | Update product quantity in cart. | Quantity and total price update correctly. |  |  |
+| Cart Management. | Remove product from cart. | Product is removed and cart updates. |  |  |
+| Cart Navigation. | Click cart icon in navbar. | User is taken to cart page. |  |  |
+| Checkout. | Proceed to checkout from cart. | Checkout page loads with order summary. |  |  |
+| Checkout. | Submit checkout form with valid details. | Order is created and success page is shown. |  |  |
+| Order Confirmation. | Complete an order | Order number is displayed on success page. |  |  |
+| Order History. | View "My Orders" as logged-in user. | Previous orders are displayed correctly. |  |  |
+| Access Control. | Try to access order history while logged out. | User is redirected to login page. |  |  |
+| Admin Product Management. | Add a product via admin panel. | Product appears on the shop page. |  |  |
+| Admin Product Management. | Edit a product via admin panel. | Product updates correctly on the site. |  |  |
+| Admin Product Management. | Delete a product via admin panel. | Product is removed from the shop. |  |  |
+| Error Handling. | Visit a non-existent URL. | Custom 404 error page is displayed. |  |  |
 
 **User Feedback Testing:** ( Testing carried out with family and friends. ) 
 
