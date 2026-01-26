@@ -484,25 +484,25 @@ The project was deployed to Heroku using the following steps:
 
 | Feature | Test Action | Expected Result | Actual Result | Pass/Fail |
 |------|-----------|----------------|---------------|-----------|
-| User Registration. | Submit sign-up form with valid details. | User account is created and user is logged in. |  |  |
-| User Registration. | Submit sign-up form with invalid or missing fields. | Error message is displayed and account is not created. |  |  |
-| Login. | Log in with valid credentials. | User is logged in and navigation updates. |  |  |
+| User Registration. | Submit sign-up form with valid details. | User account is created and user is logged in. | User account created. | Pass. |
+| User Registration. | Submit sign-up form with invalid or missing fields. | Error message is displayed and account is not created. | Error displayed. | Pass. |
+| Login. | Log in with valid credentials. | User is logged in and navigation updates. | User logged in, navbar updated. | Pass. |
 | Login. | Log in with invalid credentials. | Error message is displayed. |  |  |
-| Logout. | Click logout link. | User is logged out and redirected appropriately. |  |  |
+| Logout. | Click logout link. | User is logged out and redirected appropriately. | User logged out and redirected to the homepage. | Pass. |
 | Product Browsing. | View shop page. | Products are displayed with images, prices and buttons. |  |  |
-| Product Detail. | Click on a product. | Product detail page loads with correct information. |  |  |
-| Add to Cart. | Add product to cart. | Product appears in cart with correct quantity. |  |  |
-| Cart Management. | Update product quantity in cart. | Quantity and total price update correctly. |  |  |
-| Cart Management. | Remove product from cart. | Product is removed and cart updates. |  |  |
-| Cart Navigation. | Click cart icon in navbar. | User is taken to cart page. |  |  |
-| Checkout. | Proceed to checkout from cart. | Checkout page loads with order summary. |  |  |
-| Checkout. | Submit checkout form with valid details. | Order is created and success page is shown. |  |  |
-| Order Confirmation. | Complete an order | Order number is displayed on success page. |  |  |
+| Product Detail. | Click on a product. | Product detail page loads with correct information. | Product detail page loads correctly. | Pass. |
+| Add to Cart. | Add product to cart. | Product appears in cart with correct quantity. | Product added to cart. | Pass. |
+| Cart Management. | Update product quantity in cart. | Quantity and total price update correctly. | Quantity and price updated. | Pass. |
+| Cart Management. | Remove product from cart. | Product is removed and cart updates. | Product removed. | Pass. |
+| Cart Navigation. | Click cart icon in navbar. | User is taken to cart page. | Redirected to the cart page. | Pass. |
+| Checkout. | Proceed to checkout from cart. | Checkout page loads with order summary. | Checkout page loaded correctly. | Pass. |
+| Checkout. | Submit checkout form with valid details. | Order is created and success page is shown. | Order created and success page shown. | Pass. |
+| Order Confirmation. | Complete an order | Order number is displayed on success page. | Order number displayed on success page. | Pass. |
 | Order History. | View "My Orders" as logged-in user. | Previous orders are displayed correctly. |  |  |
-| Access Control. | Try to access order history while logged out. | User is redirected to login page. |  |  |
-| Admin Product Management. | Add a product via admin panel. | Product appears on the shop page. |  |  |
-| Admin Product Management. | Edit a product via admin panel. | Product updates correctly on the site. |  |  |
-| Admin Product Management. | Delete a product via admin panel. | Product is removed from the shop. |  |  |
+| Access Control. | Try to access order history while logged out. | User is restriced from accessing order history. | Not shown as an option in the navbar if the user is logged out. | Pass |
+| Admin Product Management. | Add a product via admin panel. | Product appears on the shop page. | Product appears correctly. | Pass. |
+| Admin Product Management. | Edit a product via admin panel. | Product updates correctly on the site. | product updated correctly. | Pass. |
+| Admin Product Management. | Delete a product via admin panel. | Product is removed from the shop. | Product removed successfully. | Pass. |
 | Error Handling. | Visit a non-existent URL. | Custom 404 error page is displayed. |  |  |
 
 **User Feedback Testing:** ( Testing carried out with family and friends. ) 
