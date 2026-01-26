@@ -13,7 +13,7 @@ def home(request):
     return render(request, 'pages/home.html', context)
 
 def custom_404(request, exception):
-    return render(request, 'errors/404.html', status=404)
+    return render(request, '404.html', status=404)
 
 def custom_403(request, exception=None):
-    return render(request, 'errors/403.html', status=403)
+    return render(request, '403.html', status=403)
