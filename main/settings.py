@@ -15,7 +15,7 @@ import dj_database_url
 from pathlib import Path
 from dotenv import load_dotenv
 import cloudinary
-import cloudinary_storage
+import cloudinary.uploader
 import cloudinary.api
 
 load_dotenv()
@@ -50,8 +50,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'cloudinary',
+
     'cloudinary_storage',
+    'cloudinary',
 
     'allauth',
     'allauth.account',
@@ -175,4 +176,4 @@ CLOUDINARY_STORAGE = {
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-MEDIA_URL = '/media/' 
+MEDIA_URL = '/media/'
