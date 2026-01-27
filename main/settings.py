@@ -14,7 +14,9 @@ import os
 import dj_database_url
 from pathlib import Path
 from dotenv import load_dotenv
-
+import cloudinary
+import cloudinary_storage
+import cloudinary.api
 
 load_dotenv()
 
