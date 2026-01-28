@@ -1,6 +1,6 @@
 # Flex_Fit_P4
 
-View here:
+View here: [Flex Fit P4](https://flex-fit-p4-dd9237a311ff.herokuapp.com/)
 
 ## Description
 
@@ -167,6 +167,12 @@ The key project requirements include:
 ### Logo
 
 * Develop a custom logo to improve visual recognition across the site.
+
+---
+
+### Persistent Product Images
+
+* Use a cloud based storage solution (e.g. Cloudinary) to allow product images to persist in production.
 
 ---
 
@@ -370,13 +376,95 @@ You can view the wireframes here: [View Wireframes](docs/wireframes.md)
 
 * TinyPNG – Used to compress images to improve site performance.
 
+* Cloudinary - Used to host and manage product images.
+
 ## Deployment
+
+**Known issues / Deployment notes:**
+
+* Product images uploaded via the Django admin interface do not show on Heroku due to its ephemeral filesytem.
+  In a production environment, a cloud based media storage solution such as Cloudinary would be implemented.
+
+---
 
 **Deployment steps:**
 
+The project was deployed to Heroku using the following steps:
+
+**1. Create a new Heroku app:**
+
+* Log in to Heroku
+* Click New → Create new app
+* Choose an app name
+* Select the EU region
+
+---
+
+**2. Configure environment variables:**
+
+* Navigate to Settings → Reveal Config Vars
+* Add the following variables:
+  - SECRET_KEY
+  - DEBUG (set to False in production)
+
+---
+
+**3. Prepare the project for deployment:**
+
+* Install required packages:
+  - gunicorn
+  - python-dotenv
+  - Update requirements.txt
+  - Create a Procfile with: web: gunicorn main.wsgi
+
+---
+
+
+**4. Configure Django settings:**
+
+* Set SECRET_KEY to use environment variables
+* Set DEBUG to False for production
+* Configure ALLOWED_HOSTS to include the Heroku app URL
+
+---
+
+**5. Deploy to Heroku:**
+
+* Connect the Heroku app to the GitHub repository
+* Enable automatic or manual deploys
+* Deploy the main branch
+
+---
+
+**6. Finalise deployment:**
+
+* Run migrations on Heroku
+* Create a superuser for admin access
+* Verify the application loads correctly
+
+---
+
 **Forking the Repository:**
 
+1. Log in to GitHub
+
+2. Navigate to the repository
+
+3. Click the Fork button in the top-right corner
+
+4. A copy of the repository will be created in your GitHub account
+
+---
+
 **Cloning the Github Respository:**
+
+1. Choose the location where you want to store the cloned repository.
+
+2. Open your terminal or command prompt.
+  
+4. In the terminal, type the folling command: git clone and your https://github.com/yourusername/your-repo.git
+  
+5. After cloning the repository, change the directory into the project folder by using the cd command: *cd your-repo-name *Now you can open the cloned repository in a code editor and make changes.
 
 ## Security
 
@@ -398,25 +486,25 @@ You can view the wireframes here: [View Wireframes](docs/wireframes.md)
 
 | Feature | Test Action | Expected Result | Actual Result | Pass/Fail |
 |------|-----------|----------------|---------------|-----------|
-| User Registration. | Submit sign-up form with valid details. | User account is created and user is logged in. |  |  |
-| User Registration. | Submit sign-up form with invalid or missing fields. | Error message is displayed and account is not created. |  |  |
-| Login. | Log in with valid credentials. | User is logged in and navigation updates. |  |  |
+| User Registration. | Submit sign-up form with valid details. | User account is created and user is logged in. | User account created. | Pass. |
+| User Registration. | Submit sign-up form with invalid or missing fields. | Error message is displayed and account is not created. | Error displayed. | Pass. |
+| Login. | Log in with valid credentials. | User is logged in and navigation updates. | User logged in, navbar updated. | Pass. |
 | Login. | Log in with invalid credentials. | Error message is displayed. |  |  |
-| Logout. | Click logout link. | User is logged out and redirected appropriately. |  |  |
+| Logout. | Click logout link. | User is logged out and redirected appropriately. | User logged out and redirected to the homepage. | Pass. |
 | Product Browsing. | View shop page. | Products are displayed with images, prices and buttons. |  |  |
-| Product Detail. | Click on a product. | Product detail page loads with correct information. |  |  |
-| Add to Cart. | Add product to cart. | Product appears in cart with correct quantity. |  |  |
-| Cart Management. | Update product quantity in cart. | Quantity and total price update correctly. |  |  |
-| Cart Management. | Remove product from cart. | Product is removed and cart updates. |  |  |
-| Cart Navigation. | Click cart icon in navbar. | User is taken to cart page. |  |  |
-| Checkout. | Proceed to checkout from cart. | Checkout page loads with order summary. |  |  |
-| Checkout. | Submit checkout form with valid details. | Order is created and success page is shown. |  |  |
-| Order Confirmation. | Complete an order | Order number is displayed on success page. |  |  |
+| Product Detail. | Click on a product. | Product detail page loads with correct information. | Product detail page loads correctly. | Pass. |
+| Add to Cart. | Add product to cart. | Product appears in cart with correct quantity. | Product added to cart. | Pass. |
+| Cart Management. | Update product quantity in cart. | Quantity and total price update correctly. | Quantity and price updated. | Pass. |
+| Cart Management. | Remove product from cart. | Product is removed and cart updates. | Product removed. | Pass. |
+| Cart Navigation. | Click cart icon in navbar. | User is taken to cart page. | Redirected to the cart page. | Pass. |
+| Checkout. | Proceed to checkout from cart. | Checkout page loads with order summary. | Checkout page loaded correctly. | Pass. |
+| Checkout. | Submit checkout form with valid details. | Order is created and success page is shown. | Order created and success page shown. | Pass. |
+| Order Confirmation. | Complete an order | Order number is displayed on success page. | Order number displayed on success page. | Pass. |
 | Order History. | View "My Orders" as logged-in user. | Previous orders are displayed correctly. |  |  |
-| Access Control. | Try to access order history while logged out. | User is redirected to login page. |  |  |
-| Admin Product Management. | Add a product via admin panel. | Product appears on the shop page. |  |  |
-| Admin Product Management. | Edit a product via admin panel. | Product updates correctly on the site. |  |  |
-| Admin Product Management. | Delete a product via admin panel. | Product is removed from the shop. |  |  |
+| Access Control. | Try to access order history while logged out. | User is restriced from accessing order history. | Not shown as an option in the navbar if the user is logged out. | Pass |
+| Admin Product Management. | Add a product via admin panel. | Product appears on the shop page. | Product appears correctly. | Pass. |
+| Admin Product Management. | Edit a product via admin panel. | Product updates correctly on the site. | product updated correctly. | Pass. |
+| Admin Product Management. | Delete a product via admin panel. | Product is removed from the shop. | Product removed successfully. | Pass. |
 | Error Handling. | Visit a non-existent URL. | Custom 404 error page is displayed. |  |  |
 
 **User Feedback Testing:** ( Testing carried out with family and friends. ) 
@@ -463,7 +551,11 @@ Responsiveness:
 |||||
 | Cart caused a page error. | Cart session data was stored in two different formats ( numbers or dictionary with size ). | Updated the cart context processor to handle both types. | Cart now works correctly without errors. |
 |||||
+| Product images failed to load after deployment. | I used Cloundinary to upload images after deployment but I had put the incorrect Cloundinary API credentials in Heroku, causing authentication failures when uploading images. | Corrected API credentials in Heroku config vars, restarted the application, and re-uploaded product images via Django admin. | Images now upload successfully to Cloudinary and display correctly on the site. |
+|||||
 |  |  |  |  |
+
+
 
 ## Credits
 
