@@ -376,6 +376,8 @@ You can view the wireframes here: [View Wireframes](docs/wireframes.md)
 
 * TinyPNG – Used to compress images to improve site performance.
 
+* Cloudinary - Used to host and manage product images.
+
 ## Deployment
 
 **Known issues / Deployment notes:**
