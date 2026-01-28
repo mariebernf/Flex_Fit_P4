@@ -549,11 +549,11 @@ Responsiveness:
 |||||
 | Cart caused a page error. | Cart session data was stored in two different formats ( numbers or dictionary with size ). | Updated the cart context processor to handle both types. | Cart now works correctly without errors. |
 |||||
+| Product images failed to load after deployment. | I used Cloundinary to upload images after deployment but I had put the incorrect Cloundinary API credentials in Heroku, causing authentication failures when uploading images. | Corrected API credentials in Heroku config vars, restarted the application, and re-uploaded product images via Django admin. | Images now upload successfully to Cloudinary and display correctly on the site. |
+|||||
 |  |  |  |  |
 
-**known issues:**
 
-* Product images not showing on Heroku: Images uploaded via the Django admin appear locally but do not show on the deployed site becasue of Heroku's filesystem is ephemeral. In a production environment, a cloud based storage solution such as Cloudinary would be used to store product images.
 
 ## Credits
 
