@@ -131,6 +131,8 @@ The key project requirements include:
 * Custom 403 and 404 error pages are implemented for improved user experience.
 * Authentication prevents unauthorised access to restricted pages.
 
+**Note:** Custom 403 and 404 error pages were implemented, but the default Django 500 page shows instead of the custom 404 and 403 pages. This is documented in Known Bugs.
+
 ## Future Features
 
 ### Advanced Product Variations
@@ -172,12 +174,6 @@ The key project requirements include:
 ### Logo
 
 * Develop a custom logo to improve visual recognition across the site.
-
----
-
-### Persistent Product Images
-
-* Use a cloud based storage solution (e.g. Cloudinary) to allow product images to persist in production.
 
 ---
 
@@ -385,13 +381,6 @@ You can view the wireframes here: [View Wireframes](docs/wireframes.md)
 
 ## Deployment
 
-**Known issues / Deployment notes:**
-
-* Product images uploaded via the Django admin interface do not show on Heroku due to its ephemeral filesytem.
-  In a production environment, a cloud based media storage solution such as Cloudinary would be implemented.
-
----
-
 **Deployment steps:**
 
 The project was deployed to Heroku using the following steps:
@@ -484,6 +473,7 @@ The project was deployed to Heroku using the following steps:
 ## Responsive Design Testing
 
 The Home page was tested for responsiveness using browser developer tools. Testing was carried out on, mobile, tablet and desktop screen sizes. On Chrome, Edge and Firefox browsers. The layout adapts correctly across all tested screen sizes and browsers.
+
 Find the screenshots of the responsive testing here: [Responsive Testing Screenshots](docs/responsive_testing.md)
 
 ## Lighthouse Reports
