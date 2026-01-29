@@ -573,6 +573,8 @@ They reported the site was easy to navigate and liked the design of the website.
 
 This project was influenced by the *Boutique Ado* tutorial provided by Code Institute. The tutorial was used as a learning reference for Django e-commerce concepts. The tutorial is available via the Code Institute learning platform.
 
+This project was developed using my own code. Standard Django template structures and web development conventions were followed throughout the project. 
+
 ### Learning and Libraries:
 
 - [Django Documentation](https://docs.djangoproject.com/)
