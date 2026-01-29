@@ -476,6 +476,11 @@ The project was deployed to Heroku using the following steps:
 
 ## Testing
 
+## Responsive Design Testing
+
+The Home page was tested for responsiveness using browser developer tools. Testing was carried out on, mobile, tablet and desktop screen sizes. On Chrome, Edge and Firefox browsers. The layout adapts correctly across all tested screen sizes and browsers.
+Find the screenshots of the responsive testing here: [Responsive Testing Screenshots](docs/responsive_testing.md)
+
 ## Lighthouse reports
 
 ## W3C Markup Validation
@@ -522,8 +527,6 @@ During testing, it was noted that there was no button to continue shopping from 
 **General Feedback:** 
 
 They reported the site was easy to navigate and liked the design of the website.
-
-Responsiveness: 
 
 ## Bugs and Fixes
 
