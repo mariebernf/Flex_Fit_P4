@@ -499,7 +499,7 @@ Find the screenshots of the responsive testing here: [Responsive Testing Screens
 | User Registration. | Submit sign-up form with valid details. | User account is created and user is logged in. | User account created. | Pass. |
 | User Registration. | Submit sign-up form with invalid or missing fields. | Error message is displayed and account is not created. | Error displayed. | Pass. |
 | Login. | Log in with valid credentials. | User is logged in and navigation updates. | User logged in, navbar updated. | Pass. |
-| Login. | Log in with invalid credentials. | Error message is displayed. |  |  |
+| Login. | Log in with invalid credentials. | Error message is displayed. | No error message shown. | Fail. |
 | Logout. | Click logout link. | User is logged out and redirected appropriately. | User logged out and redirected to the homepage. | Pass. |
 | Product Browsing. | View shop page. | Products are displayed with images, prices and buttons. | Shop page displays products with images, prices and buttons. | Pass |
 | Product Detail. | Click on a product. | Product detail page loads with correct information. | Product detail page loads correctly. | Pass. |
@@ -515,7 +515,7 @@ Find the screenshots of the responsive testing here: [Responsive Testing Screens
 | Admin Product Management. | Add a product via admin panel. | Product appears on the shop page. | Product appears correctly. | Pass. |
 | Admin Product Management. | Edit a product via admin panel. | Product updates correctly on the site. | product updated correctly. | Pass. |
 | Admin Product Management. | Delete a product via admin panel. | Product is removed from the shop. | Product removed successfully. | Pass. |
-| Error Handling. | Visit a non-existent URL. | Custom 404 error page is displayed. |  |  |
+| Error Handling. | Visit a non-existent URL. | Custom 404 error page is displayed. | Default Django 500 error page is displayed. | Fail. |
 
 **User Feedback Testing:** ( Testing carried out with family and friends. ) 
 
@@ -560,10 +560,21 @@ They reported the site was easy to navigate and liked the design of the website.
 | Cart caused a page error. | Cart session data was stored in two different formats ( numbers or dictionary with size ). | Updated the cart context processor to handle both types. | Cart now works correctly without errors. |
 |||||
 | Product images failed to load after deployment. | I used Cloundinary to upload images after deployment but I had put the incorrect Cloundinary API credentials in Heroku, causing authentication failures when uploading images. | Corrected API credentials in Heroku config vars, restarted the application, and re-uploaded product images via Django admin. | Images now upload successfully to Cloudinary and display correctly on the site. |
-|||||
-|  |  |  |  |
 
 
+## Known bugs / Issues
+
+Unfortunately, these issues were not resolved before submission. They will be addressed in a future update.
+
+---
+
+* **Custom 404 page not displayed:** The default Django 500 page shows instead of the custom 404 and 403 pages.
+
+---
+
+* **Login error message not shown:** When logging in with invalid credentials, no error message appears.
+
+---
 
 ## Credits
 
