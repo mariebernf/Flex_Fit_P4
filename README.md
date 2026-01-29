@@ -2,12 +2,27 @@
   <img src="docs/screenshots/flex_tablet_mockup.png" alt="Flex Fit Tablet Mockup" width="600"/>
 </p>
 
-
 # Flex_Fit_P4
 
-View here: [Flex Fit P4](https://flex-fit-p4-dd9237a311ff.herokuapp.com/)
+## Table of Contents
 
-## Description
+- [Project Overview](#project-overview)
+- [User Stories](#user-stories)
+- [Features](#features)
+- [Future Features](#future-features)
+- [Design](#design)
+- [Database Schema](#database-schema)
+- [Technologies Used](#technologies-used)
+- [Deployment](#deployment)
+- [Testing](#testing)
+- [Bugs and Fixes](#bugs-and-fixes)
+- [Known Issues](#known-issues)
+- [Credits](#credits)
+
+
+View the live site here: [Flex Fit P4](https://flex-fit-p4-dd9237a311ff.herokuapp.com/)
+
+## Project Overview
 
 Flex Fit is an e-commerce web application built using Django. Flex Fit sells fitness clothing for men and women. The site allows users to browse clothing products, select sizes, add items to a shopping cart, and complete a secure checkout process.
 
@@ -580,7 +595,7 @@ They reported the site was easy to navigate and liked the design of the website.
 | Product images failed to load after deployment. | I used Cloundinary to upload images after deployment but I had put the incorrect Cloundinary API credentials in Heroku, causing authentication failures when uploading images. | Corrected API credentials in Heroku config vars, restarted the application, and re-uploaded product images via Django admin. | Images now upload successfully to Cloudinary and display correctly on the site. |
 
 
-## Known bugs / Issues
+## Known Issues
 
 Unfortunately, these issues were not resolved before submission. They will be addressed in a future update.
 
