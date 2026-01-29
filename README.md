@@ -486,7 +486,15 @@ The project was deployed to Heroku using the following steps:
 The Home page was tested for responsiveness using browser developer tools. Testing was carried out on, mobile, tablet and desktop screen sizes. On Chrome, Edge and Firefox browsers. The layout adapts correctly across all tested screen sizes and browsers.
 Find the screenshots of the responsive testing here: [Responsive Testing Screenshots](docs/responsive_testing.md)
 
-## Lighthouse reports
+## Lighthouse Reports
+
+The site's performance and best practices were evuluated using Google Lighthouse. Reports were generated for the home, shop, cart, login and sign-up pages. 
+
+The full Lighthouse reports can be viewed [here](docs/lighthouse.md).
+
+Some best practices issues were identified on the Home and Shop pages, mostly related to minor code or resource warnings, which can be addressed in future updates.
+
+---
 
 ## W3C Markup Validation
 
