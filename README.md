@@ -504,7 +504,7 @@ The site's HTML and CSS were validated using the W3C validators.
 
 The HTML markup was validated using the W3C Markup Validator.  
 
-[View HTML Validation Report](docs/w3c_css_validation.md)  
+[View HTML Validation Report](docs/w3c_validation.md)  
 
 Some minor issues were reported in the HTML, but all custom code passes validation.
 
@@ -514,7 +514,7 @@ Some minor issues were reported in the HTML, but all custom code passes validati
 
 The CSS was validated using the W3C CSS Validator.  
 
-[View CSS Validation Report](docs/w3c_css_validaton.md)  
+[View CSS Validation Report](docs/w3c_css_validation.md)  
 
 The error reported came from the external Font Awesome CSS. All custom CSS written for this project passed validation.
 
