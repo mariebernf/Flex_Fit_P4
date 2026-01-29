@@ -1,0 +1,50 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lato', sans-serif;
+    background-color: #ffffff;
+    color: #111;
+}
+
+main {
+    flex: 1;
+}
+
+/* Product cards */
+.card-img-top {
+    height: 350px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Footer styling */
+.site-footer {
+    background-color: #212529;
+    color: #ffffff;
+    padding: 0.75rem 0;
+}
+
+.site-footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Hero section */
+.hero-section {
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+    ),
+    url("/static/images/hero.jpg") center / cover no-repeat;
+    height: 65vh;
+    min-height: 400px;
+    display: flex;
+}
