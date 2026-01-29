@@ -3,8 +3,11 @@ from products.models import Product
 
 
 def view_cart(request):
-    return render(request, 'cart/cart.html')
+    cart = request.session.get('cart', {})
+    cart_items = []
+    order_total = 0
 
+    
     for item_id, item_data in cart.items():
         product = get_object_or_404(Product, id=item_id)
         cart_items.append({
@@ -13,8 +16,15 @@ def view_cart(request):
             'size': item_data['size'],
         })
 
+        
+        order_total += product.price * item_data['quantity']
+
+    
+    request.session['order_total'] = order_total
+
     context = {
         'cart_items': cart_items,
+        'order_total': order_total,
     }
 
     return render(request, 'cart/cart.html', context)
