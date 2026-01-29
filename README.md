@@ -501,7 +501,7 @@ Find the screenshots of the responsive testing here: [Responsive Testing Screens
 | Login. | Log in with valid credentials. | User is logged in and navigation updates. | User logged in, navbar updated. | Pass. |
 | Login. | Log in with invalid credentials. | Error message is displayed. |  |  |
 | Logout. | Click logout link. | User is logged out and redirected appropriately. | User logged out and redirected to the homepage. | Pass. |
-| Product Browsing. | View shop page. | Products are displayed with images, prices and buttons. |  |  |
+| Product Browsing. | View shop page. | Products are displayed with images, prices and buttons. | Shop page displays products with images, prices and buttons. | Pass |
 | Product Detail. | Click on a product. | Product detail page loads with correct information. | Product detail page loads correctly. | Pass. |
 | Add to Cart. | Add product to cart. | Product appears in cart with correct quantity. | Product added to cart. | Pass. |
 | Cart Management. | Update product quantity in cart. | Quantity and total price update correctly. | Quantity and price updated. | Pass. |
@@ -510,7 +510,7 @@ Find the screenshots of the responsive testing here: [Responsive Testing Screens
 | Checkout. | Proceed to checkout from cart. | Checkout page loads with order summary. | Checkout page loaded correctly. | Pass. |
 | Checkout. | Submit checkout form with valid details. | Order is created and success page is shown. | Order created and success page shown. | Pass. |
 | Order Confirmation. | Complete an order | Order number is displayed on success page. | Order number displayed on success page. | Pass. |
-| Order History. | View "My Orders" as logged-in user. | Previous orders are displayed correctly. |  |  |
+| Order History. | View "My Orders" as logged-in user. | Previous orders are displayed correctly. | Logged in users can view their previous orders on the my orders page.  | Pass. |
 | Access Control. | Try to access order history while logged out. | User is restriced from accessing order history. | Not shown as an option in the navbar if the user is logged out. | Pass |
 | Admin Product Management. | Add a product via admin panel. | Product appears on the shop page. | Product appears correctly. | Pass. |
 | Admin Product Management. | Edit a product via admin panel. | Product updates correctly on the site. | product updated correctly. | Pass. |
