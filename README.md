@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="docs/screenshots/flex_tablet_mockup.png" alt="Flex Fit Tablet Mockup" width="600"/>
+</p>
+
+
 # Flex_Fit_P4
 
 View here: [Flex Fit P4](https://flex-fit-p4-dd9237a311ff.herokuapp.com/)
