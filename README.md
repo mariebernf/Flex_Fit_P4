@@ -504,7 +504,7 @@ The site's HTML and CSS were validated using the W3C validators.
 
 The HTML markup was validated using the W3C Markup Validator.  
 
-[View HTML Validation Report](docs/w3c_validation.md)  
+[View HTML Validation Report](docs/w3c_css_validation.md)  
 
 Some minor issues were reported in the HTML, but all custom code passes validation.
 
