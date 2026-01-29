@@ -514,7 +514,7 @@ Some minor issues were reported in the HTML, but all custom code passes validati
 
 The CSS was validated using the W3C CSS Validator.  
 
-[View CSS Validation Report](docs/w3c_css_validaiton.md)  
+[View CSS Validation Report](docs/w3c_css_validaton.md)  
 
 The error reported came from the external Font Awesome CSS. All custom CSS written for this project passed validation.
 
