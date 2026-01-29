@@ -496,9 +496,29 @@ Some best practices issues were identified on the Home and Shop pages, mostly re
 
 ---
 
-## W3C Markup Validation
+## W3C Validation
 
-## W3C CSS Validator
+The site's HTML and CSS were validated using the W3C validators.  
+
+## HTML Markup Validation
+
+The HTML markup was validated using the W3C Markup Validator.  
+
+[View HTML Validation Report](docs/w3c_validation.md)  
+
+Some minor issues were reported in the HTML, but all custom code passes validation.
+
+---
+
+## CSS Validation
+
+The CSS was validated using the W3C CSS Validator.  
+
+[View CSS Validation Report](docs/w3c_css_validaiton.md)  
+
+The error reported came from the external Font Awesome CSS. All custom CSS written for this project passed validation.
+
+---
 
 ## Manual Testing
 
