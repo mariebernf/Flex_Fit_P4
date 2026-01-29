@@ -2,12 +2,27 @@
   <img src="docs/screenshots/flex_tablet_mockup.png" alt="Flex Fit Tablet Mockup" width="600"/>
 </p>
 
-
 # Flex_Fit_P4
 
-View here: [Flex Fit P4](https://flex-fit-p4-dd9237a311ff.herokuapp.com/)
+## Table of Contents
 
-## Description
+- [Project Overview](#project-overview)
+- [User Stories](#user-stories)
+- [Features](#features)
+- [Future Features](#future-features)
+- [Design](#design)
+- [Database Schema](#database-schema)
+- [Technologies Used](#technologies-used)
+- [Deployment](#deployment)
+- [Testing](#testing)
+- [Bugs and Fixes](#bugs-and-fixes)
+- [Known Issues](#known-issues)
+- [Credits](#credits)
+
+
+View the live site here: [Flex Fit P4](https://flex-fit-p4-dd9237a311ff.herokuapp.com/)
+
+## Project Overview
 
 Flex Fit is an e-commerce web application built using Django. Flex Fit sells fitness clothing for men and women. The site allows users to browse clothing products, select sizes, add items to a shopping cart, and complete a secure checkout process.
 
@@ -131,6 +146,8 @@ The key project requirements include:
 * Custom 403 and 404 error pages are implemented for improved user experience.
 * Authentication prevents unauthorised access to restricted pages.
 
+**Note:** Custom 403 and 404 error pages were implemented, but the default Django 500 page shows instead of the custom 404 and 403 pages. This is documented in Known Bugs.
+
 ## Future Features
 
 ### Advanced Product Variations
@@ -172,12 +189,6 @@ The key project requirements include:
 ### Logo
 
 * Develop a custom logo to improve visual recognition across the site.
-
----
-
-### Persistent Product Images
-
-* Use a cloud based storage solution (e.g. Cloudinary) to allow product images to persist in production.
 
 ---
 
@@ -385,13 +396,6 @@ You can view the wireframes here: [View Wireframes](docs/wireframes.md)
 
 ## Deployment
 
-**Known issues / Deployment notes:**
-
-* Product images uploaded via the Django admin interface do not show on Heroku due to its ephemeral filesytem.
-  In a production environment, a cloud based media storage solution such as Cloudinary would be implemented.
-
----
-
 **Deployment steps:**
 
 The project was deployed to Heroku using the following steps:
@@ -484,6 +488,7 @@ The project was deployed to Heroku using the following steps:
 ## Responsive Design Testing
 
 The Home page was tested for responsiveness using browser developer tools. Testing was carried out on, mobile, tablet and desktop screen sizes. On Chrome, Edge and Firefox browsers. The layout adapts correctly across all tested screen sizes and browsers.
+
 Find the screenshots of the responsive testing here: [Responsive Testing Screenshots](docs/responsive_testing.md)
 
 ## Lighthouse Reports
@@ -496,9 +501,29 @@ Some best practices issues were identified on the Home and Shop pages, mostly re
 
 ---
 
-## W3C Markup Validation
+## W3C Validation
 
-## W3C CSS Validator
+The site's HTML and CSS were validated using the W3C validators.  
+
+## HTML Markup Validation
+
+The HTML markup was validated using the W3C Markup Validator.  
+
+[View HTML Validation Report](docs/w3c_validation.md)  
+
+Some minor issues were reported in the HTML, but all custom code passes validation.
+
+---
+
+## CSS Validation
+
+The CSS was validated using the W3C CSS Validator.  
+
+[View CSS Validation Report](docs/w3c_css_validation.md)  
+
+The error reported came from the external Font Awesome CSS. All custom CSS written for this project passed validation.
+
+---
 
 ## Manual Testing
 
@@ -570,7 +595,7 @@ They reported the site was easy to navigate and liked the design of the website.
 | Product images failed to load after deployment. | I used Cloundinary to upload images after deployment but I had put the incorrect Cloundinary API credentials in Heroku, causing authentication failures when uploading images. | Corrected API credentials in Heroku config vars, restarted the application, and re-uploaded product images via Django admin. | Images now upload successfully to Cloudinary and display correctly on the site. |
 
 
-## Known bugs / Issues
+## Known Issues
 
 Unfortunately, these issues were not resolved before submission. They will be addressed in a future update.
 
