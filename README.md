@@ -148,6 +148,10 @@ The key project requirements include:
 
 **Note:** Custom 403 and 404 error pages were implemented, but the default Django 500 page shows instead of the custom 404 and 403 pages. This is documented in Known Bugs.
 
+### Stripe Payments
+
+Stripe test mode is implemented to simulate a payment process during checkout. The payments functionality demonstrates secure payment handling without processing real transactions.
+
 ## Future Features
 
 ### Advanced Product Variations
@@ -177,12 +181,6 @@ The key project requirements include:
 ### Saved Delivery Details
 
 * Allow logged in users to save delivery information to speed up future checkouts.
-
----
-
-### Stripe Payment Integration
-
-* Integrate Stripe to enable real online payments. Payments are currently simulated to focus on core e-commerce functionality with the project timeframe.
 
 ---
 
@@ -593,6 +591,11 @@ They reported the site was easy to navigate and liked the design of the website.
 | Cart caused a page error. | Cart session data was stored in two different formats ( numbers or dictionary with size ). | Updated the cart context processor to handle both types. | Cart now works correctly without errors. |
 |||||
 | Product images failed to load after deployment. | I used Cloundinary to upload images after deployment but I had put the incorrect Cloundinary API credentials in Heroku, causing authentication failures when uploading images. | Corrected API credentials in Heroku config vars, restarted the application, and re-uploaded product images via Django admin. | Images now upload successfully to Cloudinary and display correctly on the site. |
+|||||
+| Cart page returned a 500 error when navigating to payment. | Missing URL namespace for the payments app. | Added 'app_name ="payments" to payments urls.py and included the app in the main URL configuration. | Cart and payment flow now work correctly. |
+|||||
+|  |  |  |  |
+
 
 
 ## Known Issues
