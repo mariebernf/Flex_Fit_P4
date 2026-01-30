@@ -34,11 +34,11 @@ def checkout(request):
                     size=item['size'],
                 )
 
-            # Clear the cart
-            request.session['cart'] = {}
+            # Stor the order number and return to Stripe payment
+            request.session["order_number"] = order.order_number
+            return redirect("payments:payment")
 
-            # Redirect to success page
-            return redirect('checkout_success', order_number=order.order_number)
+
     else:
         form = OrderForm()
 
