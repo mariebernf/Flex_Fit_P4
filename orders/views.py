@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import OrderForm
 from cart.context_processors import cart_contents
 from .models import Order, OrderLineItem
@@ -16,6 +16,9 @@ def checkout(request):
         if form.is_valid():
             # Save the order
             order = form.save(commit=False)
+            if request.user.is_authenticated:
+                order.user = request.user
+            order.save()
 
             if request.user.is_authenticated:
                 order.user = request.user
@@ -23,7 +26,6 @@ def checkout(request):
             cart_data = cart_contents(request)
             order.order_total = cart_data['total']
             order.save()
-
 
             # Create order line items
             for item in cart_data['cart_items']:
@@ -38,12 +40,10 @@ def checkout(request):
             request.session["order_number"] = order.order_number
             return redirect("payments:payment")
 
-
     else:
         form = OrderForm()
 
     cart_data = cart_contents(request)
-
 
     context = {
         'form': form,
@@ -55,9 +55,20 @@ def checkout(request):
 
 
 def checkout_success(request, order_number):
+    order = get_object_or_404(Order, order_number=order_number)
+
+    if request.user.is_authenticated and order.user is None:
+        order.user = request.user
+        order.save()
+
+    request.session['cart'] = {}
+    request.session.pop("order_total", None)
+    request.session.pop("order_number", None)
+
     return render(request, 'orders/checkout_success.html', {
         'order_number': order_number
     })
+
 
 @login_required
 def order_history(request):
