@@ -17,7 +17,7 @@ form.addEventListener('submit', function (e) {
             document.getElementById('card-errors').textContent = result.error.message;
         } else {
             if (result.paymentIntent.status === 'succeeded') {
-                form.submit();
+                window.location.href = successUrl;
             }
         }
     });

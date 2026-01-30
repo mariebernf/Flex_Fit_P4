@@ -18,6 +18,9 @@ def payment(request):
 
     order = get_object_or_404(Order, order_number=order_number)
 
+    if request.method == "POST":
+        return redirect("checkout_success", order_number=order.order_number)
+
     intent = stripe.PaymentIntent.create(
         amount=int(order.order_total * 100),
         currency='eur',
@@ -30,4 +33,8 @@ def payment(request):
     }
 
 
-    return render(request, 'payments/payment.html', context)
+    return render(request, "payments/payment.html", {
+        "stripe_public_key": settings.STRIPE_PUBLIC_KEY,
+        "client_secret": intent.client_secret,
+        "order_number": order_number,
+    })

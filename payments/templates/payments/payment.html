@@ -21,6 +21,7 @@
 <script>
     const stripePublicKey = "{{ stripe_public_key }}";
     const clientSecret = "{{ client_secret }}";
+    const successUrl = "/checkout/success/{{ order_number }}/";
 </script>
 
 <script src="{% static 'js/stripe.js' %}"></script>
