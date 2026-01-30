@@ -19,7 +19,7 @@ def payment(request):
     order = get_object_or_404(Order, order_number=order_number)
 
     if request.method == "POST":
-        return redirect("orders:checkout_success", order_number=order_number)
+        return redirect("checkout_success", order_number=order_number)
 
     intent = stripe.PaymentIntent.create(
         amount=int(order.order_total * 100),
