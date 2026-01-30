@@ -10,7 +10,7 @@
         <strong>Order:</strong> {{ order.order_number }}<br>
         <strong>Date:</strong> {{ order.date|date:"d M Y" }}<br>
         <strong>Total:</strong> £{{ order.order_total }}<br>
-        <a href="{% url 'checkout_success' order.order_number %}">
+        <a href="{% url 'orders:checkout_success' order.order_number %}">
           View Order
         </a>
       </li>

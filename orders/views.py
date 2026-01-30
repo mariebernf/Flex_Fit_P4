@@ -72,5 +72,5 @@ def checkout_success(request, order_number):
 
 @login_required
 def order_history(request):
-    orders = Order.objects.filter(email=request.user.email).order_by('-date')
+    orders = Order.objects.filter(user=request.user).order_by('-date')
     return render(request, 'orders/order_history.html', {'orders': orders})
