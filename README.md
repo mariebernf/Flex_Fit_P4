@@ -4,6 +4,8 @@
 
 # Flex_Fit_P4
 
+View the live site here: [Flex Fit P4](https://flex-fit-p4-dd9237a311ff.herokuapp.com/)
+
 ## Table of Contents
 
 - [Project Overview](#project-overview)
@@ -19,8 +21,6 @@
 - [Known Issues](#known-issues)
 - [Credits](#credits)
 
-
-View the live site here: [Flex Fit P4](https://flex-fit-p4-dd9237a311ff.herokuapp.com/)
 
 ## Project Overview
 
@@ -59,6 +59,8 @@ The key project requirements include:
 * Provide a secure checkout process with order confirmation.
 
 * Store completed orders in the database.
+
+* Integrate a payment system using Stripe.
 
 ### Security and Access Control
 
