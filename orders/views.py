@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from .forms import OrderForm
 from cart.context_processors import cart_contents
 from .models import Order, OrderLineItem
@@ -14,20 +14,15 @@ def checkout(request):
     if request.method == 'POST':
         form = OrderForm(request.POST)
         if form.is_valid():
-            # Save the order
             order = form.save(commit=False)
             if request.user.is_authenticated:
                 order.user = request.user
             order.save()
 
-            if request.user.is_authenticated:
-                order.user = request.user
-
             cart_data = cart_contents(request)
             order.order_total = cart_data['total']
             order.save()
 
-            # Create order line items
             for item in cart_data['cart_items']:
                 OrderLineItem.objects.create(
                     order=order,
@@ -36,7 +31,6 @@ def checkout(request):
                     size=item['size'],
                 )
 
-            # Stor the order number and return to Stripe payment
             request.session["order_number"] = order.order_number
             return redirect("payments:payment")
 
@@ -55,12 +49,7 @@ def checkout(request):
 
 
 def checkout_success(request, order_number):
-    order = get_object_or_404(Order, order_number=order_number)
-
-    if request.user.is_authenticated and order.user is None:
-        order.user = request.user
-        order.save()
-
+    # Clear the cart/session
     request.session['cart'] = {}
     request.session.pop("order_total", None)
     request.session.pop("order_number", None)
@@ -72,5 +61,5 @@ def checkout_success(request, order_number):
 
 @login_required
 def order_history(request):
-    orders = Order.objects.filter(user=request.user).order_by('-date')
+    orders = Order.objects.filter(email=request.user.email).order_by('-date')
     return render(request, 'orders/order_history.html', {'orders': orders})
