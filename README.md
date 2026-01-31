@@ -88,7 +88,7 @@ The key project requirements include:
 | As a user, I want to add products to a shopping cart so that I can review, update or remove items before completing my purchase. | Shopping cart functionality. | Users can add products, view the cart via the navigation icon, update quantities, and remove items. | <img src="docs/screenshots/flex_fit_cart.png" alt="Shopping Cart" width="300"> |
 | As a user, I want to proceed to checkout so that I can complete my purchase. | Checkout process. | A checkout page allows users to enter delivery details. | <img src="docs/screenshots/flex_fit_checkout.png" alt="Checkout Page" width="300"> |
 | As a user, I want to receive confirmation after placing an order. | Order confirmation. | After checkout, users are shown an order success page with an order number. | <img src="docs/screenshots/flex_fit_success.png" alt="Order Success Page" width="300"> |
-| As a logged-in user, I want to view my past orders. | Order history. | Authenticated users can access a "My Orders" page displaying previous orders. | <img src="docs/screenshots/flex_fit_orders.png" alt="Order History Page" width="300"> |
+| As a logged-in user, I want to view my past orders. | Order history. | Authenticated users can access a "My Orders" page displaying previous orders. **Note:** *This feature did not work later on in the project as documented in Known issues.* | <img src="docs/screenshots/flex_fit_orders.png" alt="Order History Page" width="300"> |
 
 
 ## Features
@@ -120,9 +120,9 @@ The key project requirements include:
 ### Checkout and Orders
 
 * Secure checkout process with order summary.
-* Orders are saved to the database upon successful checkout.
+* Orders are saved to the database upon successful checkout. 
 * Users receive an order confirmation page displaying their order number.
-* Logged in users can view past orders via the "My Orders" page.
+* Logged in users can view past orders via the "My Orders" page. (This feature is partially implemented and documented as a known issue.)
 
 ---
 
@@ -533,6 +533,12 @@ The error reported came from the external Font Awesome CSS. All custom CSS writt
 
 ---
 
+### Stripe Testing Notes
+
+Stripe payments were tested using Stripe’s official test card numbers. No real payments were processed. All payment flows were completed successfully, including redirection to the checkout success page and clearing of the cart after payment.
+
+----
+
 ## Manual Testing
 
 | Feature | Test Action | Expected Result | Actual Result | Pass/Fail |
@@ -557,6 +563,11 @@ The error reported came from the external Font Awesome CSS. All custom CSS writt
 | Admin Product Management. | Edit a product via admin panel. | Product updates correctly on the site. | product updated correctly. | Pass. |
 | Admin Product Management. | Delete a product via admin panel. | Product is removed from the shop. | Product removed successfully. | Pass. |
 | Error Handling. | Visit a non-existent URL. | Custom 404 error page is displayed. | Custom 404 error page is displayed. | Pass. |
+| Stripe payment. | Go from checkout to payment page. | Stripe card input form is displayed. | Stripe payment page loads correctly. | Pass. |
+| Test card accepted. | Enter Stripe test card details. | Payment is processed. | Test payment is processed. | Pass. |
+| Payment confirmation. | Click “Pay Now” after valid card details. | User is redirected to checkout success page. | Redirected to success page. | Pass. |
+
+---
 
 **User Feedback Testing:** ( Testing carried out with family and friends. ) 
 
@@ -564,15 +575,21 @@ During testing, it was noted that there was no button to continue shopping from 
 
 **Fix:** A "Continue Shopping" button was added to the cart page, linking back to the products page to improve user navigation.
 
+---
+
 **It was also noted:** 
 
 * The product sizes appear as separate listings for the same product. This was a known design limiation and is documented in the Design Limiations and Future Features sections.
 
 * That there is not a separte Men's and Women's shopping page. The reason for this is documented in the Design Limiations section and is also included in the Future Features section.
 
+---
+
 **General Feedback:** 
 
 They reported the site was easy to navigate and liked the design of the website.
+
+---
 
 ## Bugs and Fixes
 
@@ -625,6 +642,10 @@ They reported the site was easy to navigate and liked the design of the website.
 * **Order history is not showing on the orders page:** Orders are not displayed for logged-in users.
 
 --- 
+
+* **Form alignments:** Some form alignments could be improved for better visual consistency. These improvements can be addressed in future updates.
+
+---
 
 ## Credits
 
