@@ -146,11 +146,17 @@ The key project requirements include:
 * Custom 403 and 404 error pages are implemented for improved user experience.
 * Authentication prevents unauthorised access to restricted pages.
 
-**Note:** Custom 403 and 404 error pages were implemented, but the default Django 500 page shows instead of the custom 404 and 403 pages. This is documented in Known Bugs.
+---
 
 ### Stripe Payments
 
 Stripe test mode is implemented to simulate a payment process during checkout. The payments functionality demonstrates secure payment handling without processing real transactions.
+
+* Stripe payments implemented using Stripe PaymentIntent + Stripe Elements.
+
+* Checkout flow: Cart → Checkout (address) → Stripe Payment → Checkout Success (clears cart session).
+
+---
 
 ## Future Features
 
@@ -199,6 +205,8 @@ Stripe test mode is implemented to simulate a payment process during checkout. T
 ### Order Status Tracking
 
 * Allow users to view order status updates such as "Processing" or "Dispatched.
+
+---
 
 ## Design
 
@@ -376,6 +384,8 @@ You can view the wireframes here: [View Wireframes](docs/wireframes.md)
 
 * Heroku – Cloud platform used to deploy the application.
 
+* Stripe - Payments API used to process online payments.
+
 ## Tools used
 
 * GitHub – Used to host the project repository.
@@ -541,12 +551,12 @@ The error reported came from the external Font Awesome CSS. All custom CSS writt
 | Checkout. | Proceed to checkout from cart. | Checkout page loads with order summary. | Checkout page loaded correctly. | Pass. |
 | Checkout. | Submit checkout form with valid details. | Order is created and success page is shown. | Order created and success page shown. | Pass. |
 | Order Confirmation. | Complete an order | Order number is displayed on success page. | Order number displayed on success page. | Pass. |
-| Order History. | View "My Orders" as logged-in user. | Previous orders are displayed correctly. | Logged in users can view their previous orders on the my orders page.  | Pass. |
+| Order History. | View "My Orders" as logged-in user. | Previous orders are displayed correctly. | No previous orders displayed.  | Fail. |
 | Access Control. | Try to access order history while logged out. | User is restriced from accessing order history. | Not shown as an option in the navbar if the user is logged out. | Pass |
 | Admin Product Management. | Add a product via admin panel. | Product appears on the shop page. | Product appears correctly. | Pass. |
 | Admin Product Management. | Edit a product via admin panel. | Product updates correctly on the site. | product updated correctly. | Pass. |
 | Admin Product Management. | Delete a product via admin panel. | Product is removed from the shop. | Product removed successfully. | Pass. |
-| Error Handling. | Visit a non-existent URL. | Custom 404 error page is displayed. | Default Django 500 error page is displayed. | Fail. |
+| Error Handling. | Visit a non-existent URL. | Custom 404 error page is displayed. | Custom 404 error page is displayed. | Pass. |
 
 **User Feedback Testing:** ( Testing carried out with family and friends. ) 
 
@@ -586,31 +596,35 @@ They reported the site was easy to navigate and liked the design of the website.
 |||||
 | Signup failed with error "ConnectionRefusedError". | Django tried to send a confirmation email during signup, but there is no email server running. | Added "EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' to settings.py. | Signup works successfully. |
 |||||
-| Orders placed by logged in users were not appearing in the order history page. | Orders were not linked to the logged in user. | Added a user foreign key to the Order model and assigned "order.user = request.user" during checkout. | Orders now appear correctly in the order history page for logged in users. |
-|||||
 | Cart caused a page error. | Cart session data was stored in two different formats ( numbers or dictionary with size ). | Updated the cart context processor to handle both types. | Cart now works correctly without errors. |
 |||||
 | Product images failed to load after deployment. | I used Cloundinary to upload images after deployment but I had put the incorrect Cloundinary API credentials in Heroku, causing authentication failures when uploading images. | Corrected API credentials in Heroku config vars, restarted the application, and re-uploaded product images via Django admin. | Images now upload successfully to Cloudinary and display correctly on the site. |
 |||||
 | Cart page returned a 500 error when navigating to payment. | Missing URL namespace for the payments app. | Added 'app_name ="payments" to payments urls.py and included the app in the main URL configuration. | Cart and payment flow now work correctly. |
 |||||
-|  |  |  |  |
-
-
+| Stripe payment page loaded but "Pay now" did nothing. | Form was submitting but was not redirecting to the success page. | Added a POST handler in the payment view to redirect to the checkout success page after Stripe confirmation. | Payment now completes and redirects correctly. |
+|||||
+| Checkout success page did not load after Stripe payment. | Order number was not being passed correctly from Stripe payment to the success view. | Stored order_number in session and used it when redirecting after payment. | Success page now displays the correct order number. |
+|||||
+| Cart was not emptied after successful payment. | Cart session data was not cleared on checkout success. | Cleared cart and related session variables in checkout_success view. | Cart empties correctly after payment. |
+|||||
+| Site returned 500 error after checkout changes. | Template contained broken URL references ( order history links that were not fully implemented ). | Removed unfinished order history links and views. | Site restored. |
+|||||
+| Order history not showing orders (Known Issue). | Feature not fully implemented. | Documented as a known bug. | Not yet resolved. |
 
 ## Known Issues
 
-Unfortunately, these issues were not resolved before submission. They will be addressed in a future update.
-
----
-
-* **Custom 404 page not displayed:** The default Django 500 page shows instead of the custom 404 and 403 pages.
+**Unfortunately, these issues were not resolved before submission. They will be addressed in a future update.**
 
 ---
 
 * **Login error message not shown:** When logging in with invalid credentials, no error message appears.
 
 ---
+
+* **Order history is not showing on the orders page:** Orders are not displayed for logged-in users.
+
+--- 
 
 ## Credits
 
