@@ -4,6 +4,8 @@
 
 # Flex_Fit_P4
 
+View the live site here: [Flex Fit P4](https://flex-fit-p4-dd9237a311ff.herokuapp.com/)
+
 ## Table of Contents
 
 - [Project Overview](#project-overview)
@@ -19,8 +21,6 @@
 - [Known Issues](#known-issues)
 - [Credits](#credits)
 
-
-View the live site here: [Flex Fit P4](https://flex-fit-p4-dd9237a311ff.herokuapp.com/)
 
 ## Project Overview
 
@@ -60,6 +60,8 @@ The key project requirements include:
 
 * Store completed orders in the database.
 
+* Integrate a payment system using Stripe.
+
 ### Security and Access Control
 
 * Restrict access to certain pages to authenticated users only.
@@ -88,7 +90,7 @@ The key project requirements include:
 | As a user, I want to add products to a shopping cart so that I can review, update or remove items before completing my purchase. | Shopping cart functionality. | Users can add products, view the cart via the navigation icon, update quantities, and remove items. | <img src="docs/screenshots/flex_fit_cart.png" alt="Shopping Cart" width="300"> |
 | As a user, I want to proceed to checkout so that I can complete my purchase. | Checkout process. | A checkout page allows users to enter delivery details. | <img src="docs/screenshots/flex_fit_checkout.png" alt="Checkout Page" width="300"> |
 | As a user, I want to receive confirmation after placing an order. | Order confirmation. | After checkout, users are shown an order success page with an order number. | <img src="docs/screenshots/flex_fit_success.png" alt="Order Success Page" width="300"> |
-| As a logged-in user, I want to view my past orders. | Order history. | Authenticated users can access a "My Orders" page displaying previous orders. | <img src="docs/screenshots/flex_fit_orders.png" alt="Order History Page" width="300"> |
+| As a logged-in user, I want to view my past orders. | Order history. | Authenticated users can access a "My Orders" page displaying previous orders. **Note:** *This feature did not work later on in the project as documented in Known issues.* | <img src="docs/screenshots/flex_fit_orders.png" alt="Order History Page" width="300"> |
 
 
 ## Features
@@ -120,9 +122,9 @@ The key project requirements include:
 ### Checkout and Orders
 
 * Secure checkout process with order summary.
-* Orders are saved to the database upon successful checkout.
+* Orders are saved to the database upon successful checkout. 
 * Users receive an order confirmation page displaying their order number.
-* Logged in users can view past orders via the "My Orders" page.
+* Logged in users can view past orders via the "My Orders" page. (This feature is partially implemented and documented as a known issue.)
 
 ---
 
@@ -146,7 +148,17 @@ The key project requirements include:
 * Custom 403 and 404 error pages are implemented for improved user experience.
 * Authentication prevents unauthorised access to restricted pages.
 
-**Note:** Custom 403 and 404 error pages were implemented, but the default Django 500 page shows instead of the custom 404 and 403 pages. This is documented in Known Bugs.
+---
+
+### Stripe Payments
+
+Stripe test mode is implemented to simulate a payment process during checkout. The payments functionality demonstrates secure payment handling without processing real transactions.
+
+* Stripe payments implemented using Stripe PaymentIntent + Stripe Elements.
+
+* Checkout flow: Cart → Checkout (address) → Stripe Payment → Checkout Success (clears cart session).
+
+---
 
 ## Future Features
 
@@ -180,12 +192,6 @@ The key project requirements include:
 
 ---
 
-### Stripe Payment Integration
-
-* Integrate Stripe to enable real online payments. Payments are currently simulated to focus on core e-commerce functionality with the project timeframe.
-
----
-
 ### Logo
 
 * Develop a custom logo to improve visual recognition across the site.
@@ -201,6 +207,8 @@ The key project requirements include:
 ### Order Status Tracking
 
 * Allow users to view order status updates such as "Processing" or "Dispatched.
+
+---
 
 ## Design
 
@@ -378,6 +386,8 @@ You can view the wireframes here: [View Wireframes](docs/wireframes.md)
 
 * Heroku – Cloud platform used to deploy the application.
 
+* Stripe - Payments API used to process online payments.
+
 ## Tools used
 
 * GitHub – Used to host the project repository.
@@ -525,6 +535,12 @@ The error reported came from the external Font Awesome CSS. All custom CSS writt
 
 ---
 
+### Stripe Testing Notes
+
+Stripe payments were tested using Stripe’s official test card numbers. No real payments were processed. All payment flows were completed successfully, including redirection to the checkout success page and clearing of the cart after payment.
+
+----
+
 ## Manual Testing
 
 | Feature | Test Action | Expected Result | Actual Result | Pass/Fail |
@@ -543,12 +559,17 @@ The error reported came from the external Font Awesome CSS. All custom CSS writt
 | Checkout. | Proceed to checkout from cart. | Checkout page loads with order summary. | Checkout page loaded correctly. | Pass. |
 | Checkout. | Submit checkout form with valid details. | Order is created and success page is shown. | Order created and success page shown. | Pass. |
 | Order Confirmation. | Complete an order | Order number is displayed on success page. | Order number displayed on success page. | Pass. |
-| Order History. | View "My Orders" as logged-in user. | Previous orders are displayed correctly. | Logged in users can view their previous orders on the my orders page.  | Pass. |
+| Order History. | View "My Orders" as logged-in user. | Previous orders are displayed correctly. | No previous orders displayed.  | Fail. |
 | Access Control. | Try to access order history while logged out. | User is restriced from accessing order history. | Not shown as an option in the navbar if the user is logged out. | Pass |
 | Admin Product Management. | Add a product via admin panel. | Product appears on the shop page. | Product appears correctly. | Pass. |
 | Admin Product Management. | Edit a product via admin panel. | Product updates correctly on the site. | product updated correctly. | Pass. |
 | Admin Product Management. | Delete a product via admin panel. | Product is removed from the shop. | Product removed successfully. | Pass. |
-| Error Handling. | Visit a non-existent URL. | Custom 404 error page is displayed. | Default Django 500 error page is displayed. | Fail. |
+| Error Handling. | Visit a non-existent URL. | Custom 404 error page is displayed. | Custom 404 error page is displayed. | Pass. |
+| Stripe payment. | Go from checkout to payment page. | Stripe card input form is displayed. | Stripe payment page loads correctly. | Pass. |
+| Test card accepted. | Enter Stripe test card details. | Payment is processed. | Test payment is processed. | Pass. |
+| Payment confirmation. | Click “Pay Now” after valid card details. | User is redirected to checkout success page. | Redirected to success page. | Pass. |
+
+---
 
 **User Feedback Testing:** ( Testing carried out with family and friends. ) 
 
@@ -556,15 +577,21 @@ During testing, it was noted that there was no button to continue shopping from 
 
 **Fix:** A "Continue Shopping" button was added to the cart page, linking back to the products page to improve user navigation.
 
+---
+
 **It was also noted:** 
 
 * The product sizes appear as separate listings for the same product. This was a known design limiation and is documented in the Design Limiations and Future Features sections.
 
 * That there is not a separte Men's and Women's shopping page. The reason for this is documented in the Design Limiations section and is also included in the Future Features section.
 
+---
+
 **General Feedback:** 
 
 They reported the site was easy to navigate and liked the design of the website.
+
+---
 
 ## Bugs and Fixes
 
@@ -588,24 +615,37 @@ They reported the site was easy to navigate and liked the design of the website.
 |||||
 | Signup failed with error "ConnectionRefusedError". | Django tried to send a confirmation email during signup, but there is no email server running. | Added "EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' to settings.py. | Signup works successfully. |
 |||||
-| Orders placed by logged in users were not appearing in the order history page. | Orders were not linked to the logged in user. | Added a user foreign key to the Order model and assigned "order.user = request.user" during checkout. | Orders now appear correctly in the order history page for logged in users. |
-|||||
 | Cart caused a page error. | Cart session data was stored in two different formats ( numbers or dictionary with size ). | Updated the cart context processor to handle both types. | Cart now works correctly without errors. |
 |||||
 | Product images failed to load after deployment. | I used Cloundinary to upload images after deployment but I had put the incorrect Cloundinary API credentials in Heroku, causing authentication failures when uploading images. | Corrected API credentials in Heroku config vars, restarted the application, and re-uploaded product images via Django admin. | Images now upload successfully to Cloudinary and display correctly on the site. |
-
+|||||
+| Cart page returned a 500 error when navigating to payment. | Missing URL namespace for the payments app. | Added 'app_name ="payments" to payments urls.py and included the app in the main URL configuration. | Cart and payment flow now work correctly. |
+|||||
+| Stripe payment page loaded but "Pay now" did nothing. | Form was submitting but was not redirecting to the success page. | Added a POST handler in the payment view to redirect to the checkout success page after Stripe confirmation. | Payment now completes and redirects correctly. |
+|||||
+| Checkout success page did not load after Stripe payment. | Order number was not being passed correctly from Stripe payment to the success view. | Stored order_number in session and used it when redirecting after payment. | Success page now displays the correct order number. |
+|||||
+| Cart was not emptied after successful payment. | Cart session data was not cleared on checkout success. | Cleared cart and related session variables in checkout_success view. | Cart empties correctly after payment. |
+|||||
+| Site returned 500 error after checkout changes. | Template contained broken URL references ( order history links that were not fully implemented ). | Removed unfinished order history links and views. | Site restored. |
+|||||
+| Order history not showing orders (Known Issue). | Feature not fully implemented. | Documented as a known bug. | Not yet resolved. |
 
 ## Known Issues
 
-Unfortunately, these issues were not resolved before submission. They will be addressed in a future update.
-
----
-
-* **Custom 404 page not displayed:** The default Django 500 page shows instead of the custom 404 and 403 pages.
+**Unfortunately, these issues were not resolved before submission. They will be addressed in a future update.**
 
 ---
 
 * **Login error message not shown:** When logging in with invalid credentials, no error message appears.
+
+---
+
+* **Order history is not showing on the orders page:** Orders are not displayed for logged-in users.
+
+--- 
+
+* **Form alignments:** Some form alignments could be improved for better visual consistency. These improvements can be addressed in future updates.
 
 ---
 
