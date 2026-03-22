@@ -629,6 +629,8 @@ They reported the site was easy to navigate and liked the design of the website.
 |||||
 | Site returned 500 error after checkout changes. | Template contained broken URL references ( order history links that were not fully implemented ). | Removed unfinished order history links and views. | Site restored. |
 |||||
+| Product pages returned a 500 error when running locally. | Cloudinary settings were overriding the correct cloundinary_url configuration. | Removed the cloundarinary configuration in settings. | Product pages now load correctly. |
+|||||
 | Order history not showing orders (Known Issue). | Feature not fully implemented. | Documented as a known bug. | Not yet resolved. |
 
 ## Known Issues
