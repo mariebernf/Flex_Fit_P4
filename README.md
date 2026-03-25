@@ -91,6 +91,7 @@ The key project requirements include:
 | As a user, I want to proceed to checkout so that I can complete my purchase. | Checkout process. | A checkout page allows users to enter delivery details. | <img src="docs/screenshots/flex_fit_checkout.png" alt="Checkout Page" width="300"> |
 | As a user, I want to receive confirmation after placing an order. | Order confirmation. | After checkout, users are shown an order success page with an order number. | <img src="docs/screenshots/flex_fit_success.png" alt="Order Success Page" width="300"> |
 | As a logged-in user, I want to view my past orders. | Order history. | Authenticated users can access a "My Orders" page displaying previous orders. **Note:** *This feature did not work later on in the project as documented in Known issues.* | <img src="docs/screenshots/flex_fit_orders.png" alt="Order History Page" width="300"> |
+| As a logged-in user, I want to add, edit, and delete a review on a product. | Add, Edit and Delete Review functionality. | Users can submit a review and a rating on a product, they can also edit and delete their review and rating. | <img src="docs/screenshots/flex_fit_reviews.png" alt="Review functionality" width="300"> |
 
 
 ## Features
@@ -160,6 +161,20 @@ Stripe test mode is implemented to simulate a payment process during checkout. T
 
 ---
 
+### Product Reviews
+
+Users can leave reviews and ratings on products.
+
+* Authenticated users can add a review for a product directly from the product detail page.
+
+* Users can edit and delete their own reviews.
+
+* Each user can only submit one review per product.
+
+* Reviews are displayed on the product detail page to help customers make informed decisons.
+
+* Access control ensures users can only modify their own reviews.
+
 ## Future Features
 
 ### Advanced Product Variations
@@ -195,12 +210,6 @@ Stripe test mode is implemented to simulate a payment process during checkout. T
 ### Logo
 
 * Develop a custom logo to improve visual recognition across the site.
-
----
-
-### Product Reviews
-
-* Allow users to leave reviews and ratings for products.
 
 ---
 
@@ -315,6 +324,21 @@ Orders are created during checkout and linked to the user when logged in.
 | lineitem_total | DecimalField | Total cost for the line item |
 
 Each order can contain multiple order line items.
+
+---
+
+### Review Model
+
+| Field | Type | Purpose |
+|------|------|--------|
+| id | Integer | Unique identifier for each review |
+| user | ForeignKey (User) | Links review to the user who created it |
+| product | ForeignKey (Product) | Links review to a product |
+| rating | IntegerField | Numerical rating given by the user (1–5) |
+| comment | TextField | User’s written feedback |
+| created_on | DateTimeField | Date the review was created |
+
+The Review model allows users to leave feedback on products. Each review is linked to a specific user and product, forming a relational structure. Users can only create one review per product and can edit or delete their own reviews.
 
 ---
 
