@@ -46,3 +46,17 @@ def edit_review(request, review_id):
         'form': form,
         'review': review,
     })
+
+
+@login_required
+def delete_review(request, review_id):
+    review = get_object_or_404(Review, id=review_id, user=request.user)
+    product_id = review.product.id
+
+    if request.method == 'POST':
+        review.delete()
+        return redirect('products:product_detail', product_id=product_id)
+
+    return render(request, 'reviews/delete_review.html', {
+        'review': review,
+    })

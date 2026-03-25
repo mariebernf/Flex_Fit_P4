@@ -64,6 +64,10 @@
                 <a href="{% url 'reviews:edit_review' review.id %}" class="btn btn-sm btn-outline-primary">
                     Edit Review
                 </a>
+
+                <a href="{% url 'reviews:delete_review' review.id %}" class="btn btn-sm btn-outline-danger">
+                    Delete Review
+                </a>
             {% endif %}
         </div>
         <hr>
