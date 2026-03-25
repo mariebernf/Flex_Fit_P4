@@ -327,6 +327,21 @@ Each order can contain multiple order line items.
 
 ---
 
+### Review Model
+
+| Field | Type | Purpose |
+|------|------|--------|
+| id | Integer | Unique identifier for each review |
+| user | ForeignKey (User) | Links review to the user who created it |
+| product | ForeignKey (Product) | Links review to a product |
+| rating | IntegerField | Numerical rating given by the user (1–5) |
+| comment | TextField | User’s written feedback |
+| created_on | DateTimeField | Date the review was created |
+
+The Review model allows users to leave feedback on products. Each review is linked to a specific user and product, forming a relational structure. Users can only create one review per product and can edit or delete their own reviews.
+
+---
+
 ### Colour Scheme
 
 | Element                | Colour / Class          | Purpose |
