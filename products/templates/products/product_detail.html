@@ -59,12 +59,16 @@
             <strong>{{ review.user }}</strong> - {{ review.created_on|date:"d M Y" }}<br>
             Rating: {{ review.rating }} / 5
             <p>{{ review.comment }}</p>
+
+            {% if user == review.user %}
+                <a href="{% url 'reviews:edit_review' review.id %}" class="btn btn-sm btn-outline-primary">
+                    Edit Review
+                </a>
+            {% endif %}
         </div>
         <hr>
     {% endfor %}
 {% else %}
     <p>No reviews yet.</p>
 {% endif %}
-
-
 {% endblock %}
