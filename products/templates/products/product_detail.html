@@ -45,4 +45,22 @@
         </p>
     </div>
 </div>
+<hr class="mt-5">
+
+<h3>Customer Reviews</h3>
+
+{% if reviews %}
+    {% for review in reviews %}
+        <div class="mb-3">
+            <strong>{{ review.user }}</strong> - {{ review.created_on|date:"d M Y" }}<br>
+            Rating: {{ review.rating }} / 5
+            <p>{{ review.comment }}</p>
+        </div>
+        <hr>
+    {% endfor %}
+{% else %}
+    <p>No reviews yet.</p>
+{% endif %}
+
+
 {% endblock %}

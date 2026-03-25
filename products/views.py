@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product
-
+from reviews.models import Review
 
 def product_list(request):
     products = Product.objects.all()
@@ -9,4 +9,9 @@ def product_list(request):
 
 def product_detail(request, product_id):
     product = get_object_or_404(Product, id=product_id)
-    return render(request, 'products/product_detail.html', {'product': product})
+    reviews = Review.objects.filter(product=product).order_by('-created_on')
+
+    return render(request, 'products/product_detail.html', {
+        'product': product,
+        'reviews': reviews,
+    })
