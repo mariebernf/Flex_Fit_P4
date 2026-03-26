@@ -172,9 +172,23 @@ Users can leave reviews and ratings on products.
 
 * Each user can only submit one review per product.
 
-* Reviews are displayed on the product detail page to help customers make informed decisons.
+* Reviews are displayed on the product detail page to help customers make informed decisions.
 
 * Access control ensures users can only modify their own reviews.
+
+---
+
+### Wishlist
+
+Authenticated users can add products to a wishlist from the product detail page.
+
+* Users can view saved items on a dedicated wishlist page.
+
+* Users can remove items from their wishlist.
+
+* Access control ensures users can only view and modify their own wishlist.
+
+---
 
 ## Future Features
 
@@ -192,7 +206,7 @@ Users can leave reviews and ratings on products.
 
 ### Enhanced User Accounts
 
-* Include features like a wishlist, favorites and profile management.
+* Include features like favorites and profile management.
 
 ---
 
