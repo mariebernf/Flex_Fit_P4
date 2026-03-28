@@ -91,7 +91,8 @@ The key project requirements include:
 | As a user, I want to proceed to checkout so that I can complete my purchase. | Checkout process. | A checkout page allows users to enter delivery details. | <img src="docs/screenshots/flex_fit_checkout.png" alt="Checkout Page" width="300"> |
 | As a user, I want to receive confirmation after placing an order. | Order confirmation. | After checkout, users are shown an order success page with an order number. | <img src="docs/screenshots/flex_fit_success.png" alt="Order Success Page" width="300"> |
 | As a logged-in user, I want to view my past orders. | Order history. | Authenticated users can access a "My Orders" page displaying previous orders. **Note:** *This feature did not work later on in the project as documented in Known issues.* | <img src="docs/screenshots/flex_fit_orders.png" alt="Order History Page" width="300"> |
-| As a logged-in user, I want to add, edit, and delete a review on a product. | Add, Edit and Delete Review functionality. | Users can submit a review and a rating on a product, they can also edit and delete their review and rating. | <img src="docs/screenshots/flex_fit_reviews.png" alt="Review functionality" width="300"> |
+| As a logged-in user, I want to add, edit, and delete a review on a product. | Add, Edit and Delete Review functionality. | Users can submit a review and a rating on a product, they can also edit and delete their review and rating. | <img src="docs/screenshots/reviews_flex_fit.png" alt="Review functionality" width="300"> |
+| As a logged-in user, I want to save products to a wishlist. | Wishlist functionality. | Users can add and remove products to a wishlist. The wishlist page is visible when logged in and the user can navigate to the page from the navbar. | <img src="docs/screenshots/wishlist_flex_fit.png" alt="Wishlist functionality" width="300"> |
 
 
 ## Features
@@ -171,9 +172,25 @@ Users can leave reviews and ratings on products.
 
 * Each user can only submit one review per product.
 
-* Reviews are displayed on the product detail page to help customers make informed decisons.
+* Reviews are displayed on the product detail page to help customers make informed decisions.
 
 * Access control ensures users can only modify their own reviews.
+
+---
+
+### Wishlist
+
+Authenticated users can add products to a wishlist from the product detail page.
+
+* Users can view saved items on a dedicated wishlist page.
+
+* Users can remove items from their wishlist.
+
+* Access control ensures users can only view and modify their own wishlist.
+
+* Each user can only add a product to their wishlist once.
+
+---
 
 ## Future Features
 
@@ -191,7 +208,7 @@ Users can leave reviews and ratings on products.
 
 ### Enhanced User Accounts
 
-* Include features like a wishlist, favorites and profile management.
+* Include features like favorites and profile management.
 
 ---
 
@@ -215,21 +232,11 @@ Users can leave reviews and ratings on products.
 
 ### Order Status Tracking
 
-* Allow users to view order status updates such as "Processing" or "Dispatched.
+* Allow users to view order status updates such as "Processing" or "Dispatched".
 
 ---
 
 ## Design
-
-### Design Limitations: 
-
-**Product Size Variations:**
-
-Product sizes ( S, M, L ) are implemented as separate products instead of selectable size options within a single product in the admin interface.
-
-On the website, users can still select their size but in the admin, each size is managed as an individual product. This design keeps the product, cart, checkout, and order logic simple and reliable within the project timeframe. Each size is treated as its own product with an individual stock level, which helps ensure accurate ordering and stock management.
-
-As a result, the same product appears multiple times in the shop, once per size. A more advanced size variation system would be implemented in the future and is documented in the Future Features section.
 
 **Men's and Women's Product Pages:**
 
@@ -237,9 +244,9 @@ Separte Men's and Women's pages were not implemented in this project. All produc
 
 This decision was made to keep the project focused on core e-commerce funtionality within the project timeframe. Products are still labelled by gender, allowing users to browse easily. Separate category pages are planned as a future feature.
 
-### Database Schema
+## Database Schema
 
-The project uses Django's built in ORM with SQLite database. 
+The project uses Django's built in ORM with SQLite for local development and PostgreSQL in the deployed environment.
 
 ---
 
@@ -278,14 +285,14 @@ Categories are used to group products for easier organisation and browsing.
 | name | CharField | Name of the product |
 | category | ForeignKey (Category) | Links product to a category |
 | price | DecimalField | Price of the product |
-| size | CharField | Product size (S, M, L, XL) |
+| size | CharField | Product size |
 | gender | CharField | Target gender (Men, Women, Unisex) |
 | stock_quantity | PositiveIntegerField | Available stock |
 | description | TextField | Product description |
 | is_active | Boolean | Controls product visibility |
 | image | ImageField | Product image |
 
-Each size variation is stored as a separate product, as documented in the Design Limitations section.
+Product size is selected by the user on the product detail page before adding the item to the cart. The selected size is then stored in the cart and order line item.
 
 ---
 
@@ -339,6 +346,19 @@ Each order can contain multiple order line items.
 | created_on | DateTimeField | Date the review was created |
 
 The Review model allows users to leave feedback on products. Each review is linked to a specific user and product, forming a relational structure. Users can only create one review per product and can edit or delete their own reviews.
+
+---
+
+### WishlistItem Model
+
+| Field | Type | Purpose |
+|------|------|--------|
+| id | Integer | Unique identifier for each wishlist item |
+| user | ForeignKey (User) | Links the wishlist item to the user who created it |
+| product | ForeignKey (Product) | Links the wishlist item to a product |
+| created_on | DateTimeField | Date the wishlist item was created |
+
+The WishlistItem model allows authenticated users to save products for later viewing. Each wishlist item is linked to a specific user and product, forming a relational structure. Users can only add a product to their wishlist once and can remove items from their own wishlist.
 
 ---
 
@@ -592,6 +612,19 @@ Stripe payments were tested using Stripe’s official test card numbers. No real
 | Stripe payment. | Go from checkout to payment page. | Stripe card input form is displayed. | Stripe payment page loads correctly. | Pass. |
 | Test card accepted. | Enter Stripe test card details. | Payment is processed. | Test payment is processed. | Pass. |
 | Payment confirmation. | Click “Pay Now” after valid card details. | User is redirected to checkout success page. | Redirected to success page. | Pass. |
+| Product Reviews. | Add a review as a logged-in user. | Review is saved and displayed on the product page. | Review appears correctly on product page. | Pass. |
+| Product Reviews. | Try to add a second review for the same product. | User is prevented from adding another review. | User redirected and prevented from adding duplicate review. | Pass. |
+| Product Reviews. | Edit a review. | Updated review is displayed on the product page. | Review updated correctly. | Pass. |
+| Product Reviews. | Delete a review. | Review is removed from the product page. | Review deleted successfully. | Pass. |
+| Product Reviews. | View another user’s review. | Edit/Delete buttons are not visible. | Buttons not visible for other users. | Pass. |
+| Product Reviews. | Try to add a review while logged out. | User is redirected to login page. | Redirected to login page. | Pass. |
+| Wishlist. | Add product to wishlist. | Product is added to wishlist page. | Product appears in wishlist. | Pass. |
+| Wishlist. | View wishlist page. | Saved products are displayed correctly. | Wishlist displays products correctly. | Pass. |
+| Wishlist. | Remove product from wishlist. | Product is removed from wishlist. | Product removed successfully. | Pass. |
+| Wishlist. | Add same product twice. | Product is not duplicated in wishlist. | Product not duplicated. | Pass. |
+| Wishlist. | Access wishlist while logged out. | User is redirected to login page. | Redirected to login page. | Pass. |
+| Wishlist Navigation. | Click wishlist link in navbar. | User is taken to wishlist page. | Redirected to wishlist page. | Pass. |
+| Product Size Selection. | Select a size from the dropdown and add product to cart. | Selected size is stored in cart and order line item. | Selected size displayed correctly in cart and admin order. | Pass. |
 
 ---
 
@@ -600,14 +633,6 @@ Stripe payments were tested using Stripe’s official test card numbers. No real
 During testing, it was noted that there was no button to continue shopping from the cart page. 
 
 **Fix:** A "Continue Shopping" button was added to the cart page, linking back to the products page to improve user navigation.
-
----
-
-**It was also noted:** 
-
-* The product sizes appear as separate listings for the same product. This was a known design limiation and is documented in the Design Limiations and Future Features sections.
-
-* That there is not a separte Men's and Women's shopping page. The reason for this is documented in the Design Limiations section and is also included in the Future Features section.
 
 ---
 
@@ -684,6 +709,8 @@ They reported the site was easy to navigate and liked the design of the website.
 This project was influenced by the *Boutique Ado* tutorial provided by Code Institute. The tutorial was used as a learning reference for Django e-commerce concepts. The tutorial is available via the Code Institute learning platform.
 
 This project was developed using my own code. Standard Django template structures and web development conventions were followed throughout the project. 
+
+This project extends the Boutique Ado project by implementing a custom review system with full CRUD functionality and a wishlist feature.
 
 ### Learning and Libraries:
 
