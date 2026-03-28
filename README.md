@@ -691,6 +691,8 @@ They reported the site was easy to navigate and liked the design of the website.
 | Product pages returned a 500 error when running locally. | Cloudinary settings were overriding the correct cloundinary_url configuration. | Removed the cloundarinary configuration in settings. | Product pages now load correctly. |
 |||||
 | Order history not showing orders. | Orders were filtered by email instead of the logged-in user, causing no results to display. | Updated the query to filter orders using the logged-in user (Order.objects.filter(user=request.user)). Added an order detail page to display full order information. | Order history now displays correctly and users can view individual order details. |
+|||||
+| Server error (500) after lint cleanup. | accounts.urls was included but contained no urlpatterns after unused imports were removed. | Removed unused accounts.urls include from main URL configuration. | Site runs correctly. |
 
 ## Known Issues
 
