@@ -620,6 +620,18 @@ Stripe payments were tested using Stripe’s official test card numbers. No real
 | Stripe payment. | Go from checkout to payment page. | Stripe card input form is displayed. | Stripe payment page loads correctly. | Pass. |
 | Test card accepted. | Enter Stripe test card details. | Payment is processed. | Test payment is processed. | Pass. |
 | Payment confirmation. | Click “Pay Now” after valid card details. | User is redirected to checkout success page. | Redirected to success page. | Pass. |
+| Product Reviews. | Add a review as a logged-in user. | Review is saved and displayed on the product page. | Review appears correctly on product page. | Pass. |
+| Product Reviews. | Try to add a second review for the same product. | User is prevented from adding another review. | User redirected and prevented from adding duplicate review. | Pass. |
+| Product Reviews. | Edit a review. | Updated review is displayed on the product page. | Review updated correctly. | Pass. |
+| Product Reviews. | Delete a review. | Review is removed from the product page. | Review deleted successfully. | Pass. |
+| Product Reviews. | View another user’s review. | Edit/Delete buttons are not visible. | Buttons not visible for other users. | Pass. |
+| Product Reviews. | Try to add a review while logged out. | User is redirected to login page. | Redirected to login page. | Pass. |
+| Wishlist. | Add product to wishlist. | Product is added to wishlist page. | Product appears in wishlist. | Pass. |
+| Wishlist. | View wishlist page. | Saved products are displayed correctly. | Wishlist displays products correctly. | Pass. |
+| Wishlist. | Remove product from wishlist. | Product is removed from wishlist. | Product removed successfully. | Pass. |
+| Wishlist. | Add same product twice. | Product is not duplicated in wishlist. | Product not duplicated. | Pass. |
+| Wishlist. | Access wishlist while logged out. | User is redirected to login page. | Redirected to login page. | Pass. |
+| Wishlist Navigation. | Click wishlist link in navbar. | User is taken to wishlist page. | Redirected to wishlist page. | Pass. |
 
 ---
 
@@ -712,6 +724,8 @@ They reported the site was easy to navigate and liked the design of the website.
 This project was influenced by the *Boutique Ado* tutorial provided by Code Institute. The tutorial was used as a learning reference for Django e-commerce concepts. The tutorial is available via the Code Institute learning platform.
 
 This project was developed using my own code. Standard Django template structures and web development conventions were followed throughout the project. 
+
+This project extends the Boutique Ado project by implementing a custom review system with full CRUD functionality and a wishlist feature.
 
 ### Learning and Libraries:
 
