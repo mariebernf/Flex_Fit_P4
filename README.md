@@ -126,7 +126,7 @@ The key project requirements include:
 * Secure checkout process with order summary.
 * Orders are saved to the database upon successful checkout. 
 * Users receive an order confirmation page displaying their order number.
-* Logged in users can view past orders via the "My Orders" page. (This feature is partially implemented and documented as a known issue.)
+* Logged in users can view past orders via the "My Orders" page. 
 
 ---
 
@@ -603,7 +603,7 @@ Stripe payments were tested using Stripe’s official test card numbers. No real
 | Checkout. | Proceed to checkout from cart. | Checkout page loads with order summary. | Checkout page loaded correctly. | Pass. |
 | Checkout. | Submit checkout form with valid details. | Order is created and success page is shown. | Order created and success page shown. | Pass. |
 | Order Confirmation. | Complete an order | Order number is displayed on success page. | Order number displayed on success page. | Pass. |
-| Order History. | View "My Orders" as logged-in user. | Previous orders are displayed correctly. | No previous orders displayed.  | Fail. |
+| Order History. | View "My Orders" as logged-in user. | Previous orders are displayed correctly. | Users can view their order details on their order history page.  | Pass. |
 | Access Control. | Try to access order history while logged out. | User is restriced from accessing order history. | Not shown as an option in the navbar if the user is logged out. | Pass |
 | Admin Product Management. | Add a product via admin panel. | Product appears on the shop page. | Product appears correctly. | Pass. |
 | Admin Product Management. | Edit a product via admin panel. | Product updates correctly on the site. | product updated correctly. | Pass. |
@@ -680,7 +680,7 @@ They reported the site was easy to navigate and liked the design of the website.
 |||||
 | Product pages returned a 500 error when running locally. | Cloudinary settings were overriding the correct cloundinary_url configuration. | Removed the cloundarinary configuration in settings. | Product pages now load correctly. |
 |||||
-| Order history not showing orders (Known Issue). | Feature not fully implemented. | Documented as a known bug. | Not yet resolved. |
+| Order history not showing orders. | Orders were filtered by email instead of the logged-in user, causing no results to display. | Updated the query to filter orders using the logged-in user (Order.objects.filter(user=request.user)). Added an order detail page to display full order information. | Order history now displays correctly and users can view individual order details. |
 
 ## Known Issues
 
@@ -689,10 +689,6 @@ They reported the site was easy to navigate and liked the design of the website.
 ---
 
 * **Login error message not shown:** When logging in with invalid credentials, no error message appears.
-
----
-
-* **Order history is not showing on the orders page:** Orders are not displayed for logged-in users.
 
 --- 
 
