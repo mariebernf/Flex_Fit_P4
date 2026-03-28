@@ -188,6 +188,8 @@ Authenticated users can add products to a wishlist from the product detail page.
 
 * Access control ensures users can only view and modify their own wishlist.
 
+* Each user can only add a product to their wishlist once.
+
 ---
 
 ## Future Features
@@ -230,21 +232,11 @@ Authenticated users can add products to a wishlist from the product detail page.
 
 ### Order Status Tracking
 
-* Allow users to view order status updates such as "Processing" or "Dispatched.
+* Allow users to view order status updates such as "Processing" or "Dispatched".
 
 ---
 
 ## Design
-
-### Design Limitations: 
-
-**Product Size Variations:**
-
-Product sizes ( S, M, L ) are implemented as separate products instead of selectable size options within a single product in the admin interface.
-
-On the website, users can still select their size but in the admin, each size is managed as an individual product. This design keeps the product, cart, checkout, and order logic simple and reliable within the project timeframe. Each size is treated as its own product with an individual stock level, which helps ensure accurate ordering and stock management.
-
-As a result, the same product appears multiple times in the shop, once per size. A more advanced size variation system would be implemented in the future and is documented in the Future Features section.
 
 **Men's and Women's Product Pages:**
 
@@ -252,9 +244,9 @@ Separte Men's and Women's pages were not implemented in this project. All produc
 
 This decision was made to keep the project focused on core e-commerce funtionality within the project timeframe. Products are still labelled by gender, allowing users to browse easily. Separate category pages are planned as a future feature.
 
-### Database Schema
+## Database Schema
 
-The project uses Django's built in ORM with SQLite database. 
+The project uses Django's built in ORM with SQLite for local development and PostgreSQL in the deployed environment.
 
 ---
 
@@ -293,14 +285,14 @@ Categories are used to group products for easier organisation and browsing.
 | name | CharField | Name of the product |
 | category | ForeignKey (Category) | Links product to a category |
 | price | DecimalField | Price of the product |
-| size | CharField | Product size (S, M, L, XL) |
+| size | CharField | Product size |
 | gender | CharField | Target gender (Men, Women, Unisex) |
 | stock_quantity | PositiveIntegerField | Available stock |
 | description | TextField | Product description |
 | is_active | Boolean | Controls product visibility |
 | image | ImageField | Product image |
 
-Each size variation is stored as a separate product, as documented in the Design Limitations section.
+Product size is selected by the user on the product detail page before adding the item to the cart. The selected size is then stored in the cart and order line item.
 
 ---
 
@@ -632,6 +624,7 @@ Stripe payments were tested using Stripe’s official test card numbers. No real
 | Wishlist. | Add same product twice. | Product is not duplicated in wishlist. | Product not duplicated. | Pass. |
 | Wishlist. | Access wishlist while logged out. | User is redirected to login page. | Redirected to login page. | Pass. |
 | Wishlist Navigation. | Click wishlist link in navbar. | User is taken to wishlist page. | Redirected to wishlist page. | Pass. |
+| Product Size Selection. | Select a size from the dropdown and add product to cart. | Selected size is stored in cart and order line item. | Selected size displayed correctly in cart and admin order. | Pass. |
 
 ---
 
@@ -640,14 +633,6 @@ Stripe payments were tested using Stripe’s official test card numbers. No real
 During testing, it was noted that there was no button to continue shopping from the cart page. 
 
 **Fix:** A "Continue Shopping" button was added to the cart page, linking back to the products page to improve user navigation.
-
----
-
-**It was also noted:** 
-
-* The product sizes appear as separate listings for the same product. This was a known design limiation and is documented in the Design Limiations and Future Features sections.
-
-* That there is not a separte Men's and Women's shopping page. The reason for this is documented in the Design Limiations section and is also included in the Future Features section.
 
 ---
 
