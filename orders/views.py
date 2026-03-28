@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import OrderForm
 from cart.context_processors import cart_contents
 from .models import Order, OrderLineItem
@@ -63,3 +63,9 @@ def checkout_success(request, order_number):
 def order_history(request):
     orders = Order.objects.filter(user=request.user).order_by('-date')
     return render(request, 'orders/order_history.html', {'orders': orders})
+
+
+@login_required
+def order_detail(request, order_number):
+    order = get_object_or_404(Order, order_number=order_number, user=request.user)
+    return render(request, 'orders/order_detail.html', {'order': order})
