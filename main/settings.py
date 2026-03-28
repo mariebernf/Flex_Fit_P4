@@ -14,7 +14,6 @@ import os
 import dj_database_url
 from pathlib import Path
 from dotenv import load_dotenv
-import cloudinary
 
 
 load_dotenv()
@@ -56,8 +55,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
 
-# Flex Fit Apps
-
+    # Flex Fit Apps
     'accounts',
     'products',
     'cart',
@@ -169,11 +167,11 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-#cloudinary.config(
-#   cloud_name=os.environ.get("CLOUDINARY_CLOUD_NAME"),
-#   api_key=os.environ.get("CLOUDINARY_API_KEY"),
-#   api_secret=os.environ.get("CLOUDINARY_API_SECRET"),
-#)
+# cloudinary.config(
+# cloud_name=os.environ.get("CLOUDINARY_CLOUD_NAME"),
+# api_key=os.environ.get("CLOUDINARY_API_KEY"),
+# api_secret=os.environ.get("CLOUDINARY_API_SECRET"),
+# )
 
 STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY")
 STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY")

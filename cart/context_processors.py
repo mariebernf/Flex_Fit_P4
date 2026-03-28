@@ -7,13 +7,11 @@ def cart_contents(request):
     total = 0
     product_count = 0
 
-
     products = Product.objects.filter(id__in=cart.keys())
 
     for product in products:
         item = cart[str(product.id)]
 
- 
         if isinstance(item, int):
             quantity = item
             size = None
@@ -29,7 +27,6 @@ def cart_contents(request):
             'quantity': quantity,
             'size': size,
         })
-
 
     return {
         'cart_items': cart_items,

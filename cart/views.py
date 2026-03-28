@@ -44,12 +44,9 @@ def add_to_cart(request, product_id):
     if request.method == "POST":
         size = request.POST.get('size')
         quantity = int(request.POST.get('quantity', 1))
-
-        
         if not size:
             return redirect('products:product_detail', product_id=product_id)
 
-        
         if product_id in cart:
             existing = cart[product_id]
             if isinstance(existing, int):
@@ -80,7 +77,7 @@ def update_cart(request, product_id):
             return redirect('cart:view_cart')
 
         if quantity > 0:
-            
+
             if isinstance(cart[product_id], int):
                 cart[product_id] = quantity
             else:

@@ -31,12 +31,11 @@ class OrderAdmin(admin.ModelAdmin):
         'order_total',
     )
 
-
     list_display = (
         'order_number',
         'full_name',
         'date',
-        'order_total',   
+        'order_total',
     )
 
     ordering = ('-date',)

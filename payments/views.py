@@ -15,7 +15,6 @@ def payment(request):
         messages.error(request, "No order found.")
         return redirect("cart:view_cart")
 
-
     order = get_object_or_404(Order, order_number=order_number)
 
     if request.method == "POST":
@@ -25,13 +24,6 @@ def payment(request):
         amount=int(order.order_total * 100),
         currency='eur',
     )
-
-
-    context = {
-        'stripe_public_key': settings.STRIPE_PUBLIC_KEY,
-        'client_secret': intent.client_secret,
-    }
-
 
     return render(request, "payments/payment.html", {
         "stripe_public_key": settings.STRIPE_PUBLIC_KEY,

@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Product
 from reviews.models import Review
 
+
 def product_list(request):
     products = Product.objects.all()
     return render(request, 'products/products.html', {'products': products})

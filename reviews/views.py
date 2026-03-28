@@ -8,7 +8,6 @@ from .forms import ReviewForm
 @login_required
 def add_review(request, product_id):
     product = get_object_or_404(Product, id=product_id)
-    
 
     if Review.objects.filter(product=product, user=request.user).exists():
         return redirect('products:product_detail', product_id=product.id)
