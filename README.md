@@ -579,7 +579,17 @@ The error reported came from the external Font Awesome CSS. All custom CSS writt
 
 ---
 
-### Stripe Testing Notes
+## Python Lint
+
+Python code was tested using Flake8 to ensure adherence to PEP8 standards.
+
+Unused imports, formatting issues, and spacing inconsistencies were identified and corrected across the project files.
+
+To avoid unnecessary warnings from third-party libraries, lint was run excluding the venv and migrations directories.
+
+Some minor line length warnings remain, but these do not affect the functionality or readability of the application.
+
+## Stripe Testing Notes
 
 Stripe payments were tested using Stripe’s official test card numbers. No real payments were processed. All payment flows were completed successfully, including redirection to the checkout success page and clearing of the cart after payment.
 
