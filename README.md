@@ -357,6 +357,19 @@ The Review model allows users to leave feedback on products. Each review is link
 
 ---
 
+### WishlistItem Model
+
+| Field | Type | Purpose |
+|------|------|--------|
+| id | Integer | Unique identifier for each wishlist item |
+| user | ForeignKey (User) | Links the wishlist item to the user who created it |
+| product | ForeignKey (Product) | Links the wishlist item to a product |
+| created_on | DateTimeField | Date the wishlist item was created |
+
+The WishlistItem model allows authenticated users to save products for later viewing. Each wishlist item is linked to a specific user and product, forming a relational structure. Users can only add a product to their wishlist once and can remove items from their own wishlist.
+
+---
+
 ### Colour Scheme
 
 | Element                | Colour / Class          | Purpose |
