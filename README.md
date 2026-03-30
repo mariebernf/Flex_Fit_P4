@@ -30,7 +30,7 @@ The application supports user authentication, enabling users to create accounts,
 
 The web site focuses on delivering core e-commerce functionality with a clean, minimal design and a responsive user experience across desktop, tablet and mobile devices.
 
-## Project requirments
+## Project requirements
 
 This project was developed to meet the requirements of a full-stack Django web application with CRUD functionality, authentication, and a relational database.
 
@@ -90,7 +90,7 @@ The key project requirements include:
 | As a user, I want to add products to a shopping cart so that I can review, update or remove items before completing my purchase. | Shopping cart functionality. | Users can add products, view the cart via the navigation icon, update quantities, and remove items. | <img src="docs/screenshots/flex_fit_cart.png" alt="Shopping Cart" width="300"> |
 | As a user, I want to proceed to checkout so that I can complete my purchase. | Checkout process. | A checkout page allows users to enter delivery details. | <img src="docs/screenshots/flex_fit_checkout.png" alt="Checkout Page" width="300"> |
 | As a user, I want to receive confirmation after placing an order. | Order confirmation. | After checkout, users are shown an order success page with an order number. | <img src="docs/screenshots/flex_fit_success.png" alt="Order Success Page" width="300"> |
-| As a logged-in user, I want to view my past orders. | Order history. | Authenticated users can access a "My Orders" page displaying previous orders. **Note:** *This feature did not work later on in the project as documented in Known issues.* | <img src="docs/screenshots/flex_fit_orders.png" alt="Order History Page" width="300"> |
+| As a logged-in user, I want to view my past orders. | Order history. | Authenticated users can access a "My Orders" page displaying previous orders. | <img src="docs/screenshots/flex_fit_orders.png" alt="Order History Page" width="300"> |
 | As a logged-in user, I want to add, edit, and delete a review on a product. | Add, Edit and Delete Review functionality. | Users can submit a review and a rating on a product, they can also edit and delete their review and rating. | <img src="docs/screenshots/reviews_flex_fit.png" alt="Review functionality" width="300"> |
 | As a logged-in user, I want to save products to a wishlist. | Wishlist functionality. | Users can add and remove products to a wishlist. The wishlist page is visible when logged in and the user can navigate to the page from the navbar. | <img src="docs/screenshots/wishlist_flex_fit.png" alt="Wishlist functionality" width="300"> |
 
